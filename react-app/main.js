@@ -1,10 +1,15 @@
 'use strict'
-function timer() {
-  const element = <h1> now is {new Date().toLocaleString()}</h1>;
-  ReactDOM.render(
-    element,
-    document.getElementById("vimi"),
-  );
+
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello World!</h1>;
+  }
 }
 
-setInterval(timer, 1000);
+const element = <Welcome />;
+
+ReactDOM.render(
+  element,
+  document.getElementById('vimi'),
+);
+
