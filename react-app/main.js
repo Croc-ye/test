@@ -1,12 +1,10 @@
 'use strict'
 
-class Welcome extends React.Component {
-  render() {
-    return <h1>Hello World!</h1>;
-  }
+function Welcome(ars) {
+  return <h1> {ars.name} </h1>;
 }
 
-const element = <Welcome />;
+const element = <Welcome name="hello world" />;
 
 ReactDOM.render(
   element,
