@@ -9,4 +9,4 @@ services:
       # expand all file in ./build
       - ./build:/usr/share/nginx/html
     command: /bin/bash -c "nginx -g 'daemon off;'"
-    container_name: "nginx"
+    container_name: "react-app-nginx"
