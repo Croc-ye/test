@@ -1,45 +1,38 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
   <head>
-    <meta charset = "utf-8">
-      <title>
-          <!-- set title here -->
-      </title>
-    </meta>
-    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
-    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
-    <!-- 这个下载下来很慢，不会在实际上这样用，需要用静态文件。 -->
-    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+    <title>My page</title>
   </head>
-
-  <script src = "main.js">
-      // 1、逻辑可以写在js，并且在js调用。
-      // 2、也可以在这里写，然后调用。这里调用不了main.js的内容
-  </script>
-
   <body>
-    <form action="http://127.0.0.1:8080" method="post">
-      <p>First name: <input type="text" name="fname" /></p>
-      <p>Last name: <input type="text" name="lname" /></p>
-      <input type="submit" value="Submit" />
-    </form>
-  </body>
-
-  <body>
-    <form id="test-form" action="http://127.0.0.1:8080" method="post" onsubmit="return checkForm()">
-      <p>First name: <input type="text" name="fname" /></p>
-      <p>Last name: <input type="text" name="lname" /></p>
-      <input type="submit" value="Submit" />
-    </form>
-
-    <script>
-      function checkForm() {
-        var form = document.getElementById('test-form');
-        // 可以在此修改form的input...
-        // 继续下一步:
-        form.submit();
-        return true;
-      }
-    </script>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
   </body>
 </html>
