@@ -1,13 +1,8 @@
-'use strict'
-
-function Welcome(ars) {
-  return <h1> {ars.name} </h1>;
-}
-
-const element = <Welcome name="hello world" />;
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Login from './components/login.js';
 
 ReactDOM.render(
-  element,
+  <Login />,
   document.getElementById('vimi'),
 );
-
