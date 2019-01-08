@@ -9,6 +9,12 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import { showMe, log }  from './es6.js';
+const { showMeC } = require('./commonjs.js');
+showMe();
+showMeC();
+
+log.ha();
 
 const styles = theme => ({
   root: {
