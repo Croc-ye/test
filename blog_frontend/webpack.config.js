@@ -7,6 +7,7 @@ module.exports = {
   entry: path.join(__dirname, "./app/index.js"),
   output: {
     path: path.join(__dirname, "build"),
+    publicPath:'/',
     filename: "index.js"
   },
   devServer: {

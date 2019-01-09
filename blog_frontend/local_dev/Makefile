@@ -1,13 +1,12 @@
 .PHONY: blog_frontend
 
-CONTAINER_NAME=blog_frontend_nginx
+CONTAINER_NAME=blog_frontend
 
 init:
 	make clean
 	make build_app
 
 build_app:
-	cd .. && sudo npm install && sudo npm run build
 	docker-compose up --build -d nginx
 
 stop:
