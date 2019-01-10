@@ -14,6 +14,11 @@ import withStyles from '@material-ui/core/styles/withStyles';
 
 import LockIcon from '@material-ui/icons/LockOutlined';
 
+import { api } from '../common/requestClient.js';
+import { log } from '../common/logging.js';
+
+const config = require('../common/config.js');
+
 const styles = theme => ({
   main: {
     width: 'auto',
@@ -51,6 +56,23 @@ class Login extends React.Component {
     super(props);
     console.log('classes', props.classes);
   }
+
+  request() {
+    api.request(config.root).then((success) => {
+      log.info('success ' + JSON.stringify(success));
+    }, (error) => {
+      log.info('error ' + JSON.stringify(error));
+    });
+  }
+
+  request2() {
+    api.request(config.register).then((success) => {
+      log.info('success ' + JSON.stringify(success));
+    }, (error) => {
+      log.info('error ' + JSON.stringify(error));
+    });
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -60,7 +82,7 @@ class Login extends React.Component {
           <Avatar className={classes.avatar}>
             <LockIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" onClick={this.request2}>
             Sign in
           </Typography>
           <form className={classes.form}>
@@ -82,6 +104,7 @@ class Login extends React.Component {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={this.request}
             >
               Sign in
             </Button>
