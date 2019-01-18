@@ -7,17 +7,20 @@ import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import LockIcon from '@material-ui/icons/LockOutlined';
-
+import BlogList from '../components/bloglist.js';
+import mrouter from '../common/mrouter.js';
 import { api } from '../common/requestClient.js';
 import { log } from '../common/logging.js';
 
 const config = require('../common/config.js');
 
 const styles = theme => ({
+  main: {
+  },
   avatar_big: {
     width: theme.spacing.unit * 10,
     height: theme.spacing.unit * 10,
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: '#f1f8e9',
   },
   avatar_small: {
     margin: theme.spacing.unit,
@@ -30,19 +33,19 @@ class Person extends React.Component {
     this.state = {
       blogs: [],
       user: {},
+      username: this.props.username ? this.props.username : this.props.match.params.username,
     }
   }
 
   converBlogs(blogs) {
     const content = (
-      <ul>
-        {blogs.map((blog) => 
-          <li key = {blog.title}>
-            <h3> {blog.title} </h3>
-            <p> {blog.content} </p>
-          </li>
-        )}
-      </ul>
+      blogs.map((blog)=>
+        <div key={blog.title}>
+          <BlogList blog={blog} clickfun={(e)=>{
+            mrouter.goToBlogPage(this.state.username, blog.user_blog_id);
+          }}/>
+        </div>
+      )
     );
 
     return (
@@ -53,13 +56,14 @@ class Person extends React.Component {
   }
 
   getAllBlogs(username) {
-    const blogs = [
-      {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
-      {id: 2, title: 'Installation', content: 'You can install React from npm.'}
-    ];
-    this.setState({
-      blogs: blogs,
-    });
+    api.request(config.blogs + username + '/').then((res)=>{
+      this.setState({
+        blogs: res,
+      });
+    },
+    (error)=>{
+      log.error(error);
+    })
   }
 
   getUserInfo(username) {
@@ -75,8 +79,8 @@ class Person extends React.Component {
 
   componentWillMount() {
     log.info('person page start');
-    this.getUserInfo(this.props.username ? this.props.username : this.props.match.params.username);
-    this.getAllBlogs(this.props.username ? this.props.username : this.props.match.params.username);
+    this.getUserInfo(this.state.username);
+    this.getAllBlogs(this.state.username);
   }
 
   componentWillUnmount() {
@@ -86,15 +90,13 @@ class Person extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <main>
+      <main className={classes.main}>
         <ul>
           <Avatar src={this.state.user.avatar} className={classes.avatar_big} > User </Avatar>
           <li> {this.state.user.username} </li>
         </ul>
-
         <hr />
         <hr />
-
         {this.converBlogs(this.state.blogs)}
       </main>
     );

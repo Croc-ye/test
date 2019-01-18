@@ -1,0 +1,49 @@
+version: '3'
+services:
+  blog_server:
+    build:
+      context: ../..
+      dockerfile: ./local_dev/docker/server.dockerfile
+    volumes:
+      - ${PWD}/../volumes/log:/log
+      - ${PWD}/../volumes/tmp:/tmp
+    environment:
+      - MYSQL_ROOT_USER=${MYSQL_ROOT_USER}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    ports:
+      - ${SERVER_PORT_MAPPING}
+    container_name: "blog_server"
+    links:
+      - blog_db
+    depends_on:
+      - blog_db
+
+  blog_db:
+    image: mysql:5.7
+    volumes:
+      - ${PWD}/../volumes/mysql_data:/var/lib/mysql
+    ports:
+      - ${DB_PROR_MAPPING}
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+    container_name: "blog_db"
+
+  db_restore:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    volumes:
+      - ../../app/db:/db
+      - ../shell:/shell
+    depends_on:
+      - blog_db
+    links:
+      - blog_db
+    command: "./shell/deploy.sh restore"
+    container_name: "db_restore"

@@ -12,7 +12,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import pink from '@material-ui/core/colors/pink';
 import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
-
+import Tooltip from '@material-ui/core/Tooltip';
 import LockIcon from '@material-ui/icons/LockOutlined';
 
 import { Link } from 'react-router-dom'
@@ -53,6 +53,12 @@ const styles = theme => ({
   submit: {
     marginTop: theme.spacing.unit * 3,
   },
+  tooltip: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+    boxShadow: theme.shadows[1],
+    fontSize: 16,
+  }
 });
 
 class Login extends React.Component {
@@ -112,16 +118,18 @@ class Login extends React.Component {
                 onKeyDown={(e)=>{this.pressEnterToLogin(e)}}
               />
             </FormControl>
-            <Button
-              type="button"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              onClick={()=>{this.loginRequest()}}
-            >
-              Sign in
-            </Button>
+            <Tooltip title="Confirm To Sing In" classes={{ tooltip: classes.tooltip }}>
+              <Button
+                type="button"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+                onClick={()=>{this.loginRequest()}}
+              >
+                Sign in
+              </Button>
+            </Tooltip>
           </form>
         </Paper>
       </main>

@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Link} from 'react-router-dom';
+import { Router, Route, Link} from 'react-router-dom';
 
 import Login from './components/login.js';
 import Person from './components/person.js';
+import BlogPage from './components/blogpage.js';
+
+import history from './common/history.js';
+import SimpleCard from './components/github.js';
 
 class AppRouter extends React.Component {
   constructor(props) {
@@ -11,16 +15,14 @@ class AppRouter extends React.Component {
   }
   render() {
     return (
-      <BrowserRouter>
+      <Router history={history}>
         <div>
           <Route exact path="/" component={Login}/>
-          <Route path="/login" component={Login}/>
-          <Route path="/person/:username" component={Person}/>
-          <ul>
-            
-          </ul>
+          <Route exact path="/login" component={Login}/>
+          <Route exact path="/person/:username" component={Person}/>
+          <Route exact path="/person/:username/blog/:user_blog_id" component={BlogPage}/>
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 };
