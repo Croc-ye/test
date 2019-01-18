@@ -10,38 +10,46 @@ class requestClient {
     log.info("request client service start!");
   }
 
+  converForm(form) {
+    let query = "";
+    for (const key in form) {
+      query += `${key}=${form[key]}&`;
+    }
+    // TODO query.substring(0, query.length - 1)
+    return query;
+  }
+
   request(serverApiPath, form = null) {
     const seq = this.seq;
     this.seq += 1;
-    log.info(`start requesting ${serverApiPath} with seq = ` + seq);
-    const promise = new Promise(function(resolve, reject) {
+    // TODO promise bind this?
+    const promise = new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.timeout = config.timeout;
       xhr.withCredentials = true;
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
-          log.info(`finish requesting ${serverApiPath} with seq = ` + seq);
           if (xhr.status === 200) {
-            alert(!xhr.responseText ? "???" : xhr.responseText)
-            resolve(xhr.responseText);
+            resolve(JSON.parse(xhr.responseText));
           } else {
-            reject(xhr.status);
+            reject(xhr.responseText);
           }
         } else {
+          // alert('still doing request');
           // still doing request
         }
       }
+      console.log(config.apiHostPrefix + serverApiPath);
       if (!form) {
-        console.log(config.apiHostPrefix + serverApiPath);
         xhr.open('GET', config.apiHostPrefix + serverApiPath);
         xhr.send();
       } else {
-        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
         xhr.open('POST', config.apiHostPrefix + serverApiPath);
-        xhr.send(JSON.stringify(form));
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        xhr.send(this.converForm(form));
       }
     });
-    return promise;    
+    return promise;
   }
 }
 

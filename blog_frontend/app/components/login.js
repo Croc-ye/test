@@ -2,25 +2,29 @@ import React from 'react';
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
+import pink from '@material-ui/core/colors/pink';
+import green from '@material-ui/core/colors/green';
+import grey from '@material-ui/core/colors/grey';
 
 import LockIcon from '@material-ui/icons/LockOutlined';
 
+import { Link } from 'react-router-dom'
 import { api } from '../common/requestClient.js';
 import { log } from '../common/logging.js';
+import mrouter from '../common/mrouter.js';
 
 const config = require('../common/config.js');
 
 const styles = theme => ({
   main: {
+    backgroundColor: green[700],
     width: 'auto',
     display: 'block', // Fix IE 11 issue.
     marginLeft: theme.spacing.unit * 3,
@@ -40,7 +44,7 @@ const styles = theme => ({
   },
   avatar: {
     margin: theme.spacing.unit,
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: green[500],
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -54,23 +58,30 @@ const styles = theme => ({
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    console.log('classes', props.classes);
+    this.buttonKey = 13;
   }
 
-  request() {
-    api.request(config.root).then((success) => {
+  loginRequest(event) {
+    const args = {
+      username: document.getElementById('username').value,
+      password: document.getElementById('password').value
+    };
+    if (!args.username || !args.password) {
+      return;
+    }
+    api.request(config.login, args).then((success) => {
       log.info('success ' + JSON.stringify(success));
+      mrouter.goToPersonPage(success.username);
     }, (error) => {
-      log.info('error ' + JSON.stringify(error));
+      alert('password error');
+      log.error('error ' + JSON.stringify(error));
     });
   }
 
-  request2() {
-    api.request(config.register).then((success) => {
-      log.info('success ' + JSON.stringify(success));
-    }, (error) => {
-      log.info('error ' + JSON.stringify(error));
-    });
+  pressEnterToLogin(e) {
+    if (e.keyCode === this.buttonKey) {
+      this.loginRequest();
+    }
   }
 
   render() {
@@ -79,39 +90,42 @@ class Login extends React.Component {
       <main className={classes.main}>
         <CssBaseline />
         <Paper className={classes.paper}>
-          <Avatar className={classes.avatar}>
+          <Avatar className={classes.avatar} >
             <LockIcon />
           </Avatar>
-          <Typography component="h1" variant="h5" onClick={this.request2}>
+          <Typography component="h1" variant="h5">
             Sign in
           </Typography>
           <form className={classes.form}>
             <FormControl margin="normal" required fullWidth>
-              <InputLabel htmlFor="email">Email Address</InputLabel>
-              <Input id="email" name="email" autoComplete="email" autoFocus />
+              <InputLabel>Username</InputLabel>
+              <Input id="username" type="text" name="username" autoFocus autoComplete="username" placeholder="your username"/>
             </FormControl>
             <FormControl margin="normal" required fullWidth>
-              <InputLabel htmlFor="password">Password</InputLabel>
-              <Input name="password" type="password" id="password" autoComplete="current-password" />
+              <InputLabel>Password</InputLabel>
+              <Input 
+                id="password" 
+                name="password" 
+                type="password" 
+                autoComplete="current-password"
+                placeholder="your password"
+                onKeyDown={(e)=>{this.pressEnterToLogin(e)}}
+              />
             </FormControl>
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
             <Button
-              type="submit"
+              type="button"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={this.request}
+              onClick={()=>{this.loginRequest()}}
             >
               Sign in
             </Button>
           </form>
         </Paper>
       </main>
-    );  
+    );
   }
 };
 

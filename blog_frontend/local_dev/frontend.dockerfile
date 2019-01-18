@@ -12,6 +12,7 @@ ARG BUILD_DIR="/tmp/blog_frontend/"
 
 COPY ./app ${BUILD_DIR}/app
 COPY ./package.json ${BUILD_DIR}
+COPY ./package-lock.json ${BUILD_DIR}
 COPY ./webpack.config.js ${BUILD_DIR}
 
 WORKDIR ${BUILD_DIR}
