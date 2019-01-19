@@ -79,7 +79,7 @@ class Login extends React.Component {
       log.info('success ' + JSON.stringify(success));
       mrouter.goToPersonPage(success.username);
     }, (error) => {
-      alert('password error');
+      alert(error);
       log.error('error ' + JSON.stringify(error));
     });
   }
