@@ -16,8 +16,8 @@ def connect_database():
                                  database=config.DB.DATABASE, \
                                  host=config.DB.HOST)
             return db
-        except BaseException:
-            log.error(BaseException)
+        except BaseException as e:
+            log.error(str(e))
             log.error('connect database fail')
         connect_time -= 1
     raise DatabaseError('can not connect database')
