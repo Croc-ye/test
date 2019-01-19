@@ -24,6 +24,13 @@ const styles = theme => ({
   },
   avatar_small: {
     margin: theme.spacing.unit,
+  },
+  root: {
+    display: 'flex',
+  },
+  username: {
+    marginTop: theme.spacing.unit * 4,
+    marginLeft: theme.spacing.unit,
   }
 });
 
@@ -91,10 +98,10 @@ class Person extends React.Component {
     const { classes } = this.props;
     return (
       <main className={classes.main}>
-        <ul>
+        <div className={classes.root}>
           <Avatar src={this.state.user.avatar} className={classes.avatar_big} > User </Avatar>
-          <li> {this.state.user.username} </li>
-        </ul>
+          <div className={classes.username}> {this.state.user.username} </div>
+        </div>
         <hr />
         <hr />
         {this.converBlogs(this.state.blogs)}
