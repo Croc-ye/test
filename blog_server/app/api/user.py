@@ -29,3 +29,10 @@ def delele_by_id():
     return jsonify({
         "success": "user alerady delete",
     });
+
+@user_api.route('/check_session/', methods=['GET'])
+@parse_user()
+@parse_access()
+def check_session():
+    u = User.by_id(g.user_id)
+    return jsonify(u.to_json())
