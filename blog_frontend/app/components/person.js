@@ -40,7 +40,7 @@ class Person extends React.Component {
   converBlogs(blogs) {
     const content = (
       blogs.map((blog)=>
-        <div key={blog.title}>
+        <div key={blog.user_blog_id}>
           <BlogList blog={blog} clickfun={(e)=>{
             mrouter.goToBlogPage(this.state.username, blog.user_blog_id);
           }}/>
