@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link} from 'react-router-dom';
+import { Router, Route, Link, Switch} from 'react-router-dom';
 
 import Login from './components/login.js';
 import Person from './components/person.js';
@@ -20,12 +20,13 @@ class AppRouter extends React.Component {
   render() {
     return (
       <Router history={history}>
-        <div>
+        <Switch>
           <Route exact path="/" component={Login}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/person/:username" component={Person}/>
           <Route exact path="/person/:username/blog/:user_blog_id" component={BlogPage}/>
-        </div>
+          <Route path="*" component={Login}/>
+        </Switch>
       </Router>
     );
   }
@@ -36,11 +37,11 @@ function begin() {
     <AppRouter />,
     document.getElementById('root'),
   );
-  api.request(config.checkSession).then((success)=> {
-    mrouter.goToPersonPage(success.username);
-  }, (error) => {
-    log.info(error);
-  });
+  // api.request(config.checkSession).then((success)=> {
+  //   mrouter.goToPersonPage(success.username);
+  // }, (error) => {
+  //   log.info(error);
+  // });
 }
 
 begin();
