@@ -37,11 +37,11 @@ function begin() {
     <AppRouter />,
     document.getElementById('root'),
   );
-  // api.request(config.checkSession).then((success)=> {
-  //   mrouter.goToPersonPage(success.username);
-  // }, (error) => {
-  //   log.info(error);
-  // });
+  api.request(config.checkSession).then((success)=> {
+    mrouter.goToPersonPage(success.username);
+  }, (error) => {
+    log.info(error);
+  });
 }
 
 begin();
