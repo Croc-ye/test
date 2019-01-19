@@ -9,6 +9,10 @@ import BlogPage from './components/blogpage.js';
 import history from './common/history.js';
 import SimpleCard from './components/github.js';
 
+import { api } from './common/requestClient.js';
+import mrouter from './common/mrouter.js';
+const config = require('./common/config.js');
+
 class AppRouter extends React.Component {
   constructor(props) {
     super(props);
@@ -27,7 +31,16 @@ class AppRouter extends React.Component {
   }
 };
 
-ReactDOM.render(
-  <AppRouter />,
-  document.getElementById('root'),
-);
+function begin() {
+  ReactDOM.render(
+    <AppRouter />,
+    document.getElementById('root'),
+  );
+  api.request(config.checkSession).then((success)=> {
+    mrouter.goToPersonPage(success.username);
+  }, (error) => {
+    log.info(error);
+  });
+}
+
+begin();

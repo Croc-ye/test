@@ -4,6 +4,7 @@ module.exports = {
   apiHostPrefix: 'http://localhost:8888',
   login: '/user/login/',
   info: '/user/info/',
+  checkSession: '/user/check_session/',
   blogs: '/blog/get_all_blog/',
   blog: '/blog/get_blog/',
   limitUserNameLength: 15,
