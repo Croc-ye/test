@@ -36,3 +36,14 @@ class UnknownError(MyExpection):
             http_status_code = HttpStatusCode.SERVER_ERROR
 
         super().__init__(message, status, http_status_code)
+
+class CacheError(MyExpection):
+    def __init__(self, message = None, status = None, http_status_code = None):
+        if message is None:
+            message = "Cache error"
+        if status is None:
+            status = ExpectionErrorMapping.CACHE_ERROR
+        if http_status_code is None:
+            http_status_code = HttpStatusCode.SERVER_ERROR
+
+        super().__init__(message, status, http_status_code)

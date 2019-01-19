@@ -5,7 +5,7 @@ from .db_base import Database
 from .user import User
 from logger.logger import log
 from errors.expection import ArgsError, UnknownError
-from redis.redis import Redis
+from cache.redis import Redis
 
 class Blog:
     Table = 'blog'
@@ -53,6 +53,15 @@ class Blog:
             ))
 
         return final_result
+
+    @classmethod
+    def get_max_blog_id(cls, user_id):
+        sql = 'select max(user_blog_id) from %s where user_id="%s"' % (cls.Table, user_id)
+        reduslt = Database.execute(sql)
+        if result is not None and len(result) == 1:
+            return result[0][0]
+        else:
+            return 0
 
     def to_json(self):
         return {

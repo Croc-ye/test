@@ -1,5 +1,5 @@
 #!/bin/bash
-container_name=(blog_server blog_db db_restore)
+container_name=(blog_server blog_db db_restore blog_redis)
 server_address=95.163.202.160
 project_name="blog_server"
 

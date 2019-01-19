@@ -11,3 +11,4 @@ class ExpectionErrorMapping:
     INVALID_USER_INPUT = 1
     INTERNAL_DATABASE_ERROR = 2
     UNKNOWN_ERROR = 3
+    CACHE_ERROR = 4

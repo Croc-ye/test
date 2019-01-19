@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import threading
-import pymysql
+import pymysql, time
 from config import config
 from logger.logger import log
 from errors.expection import DatabaseError
@@ -19,6 +19,7 @@ def connect_database():
         except BaseException as e:
             log.error(str(e))
             log.error('connect database fail')
+            time.sleep(3) # in second
         connect_time -= 1
     raise DatabaseError('can not connect database')
 
