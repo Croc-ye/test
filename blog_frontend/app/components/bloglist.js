@@ -11,8 +11,12 @@ import blue from '@material-ui/core/colors/blue';
 const styles = {
   card: {
     minWidth: 275,
-    backgroundColor: '#f1f8e9',
-    marginTop: 20,
+    'background-color': '#f1f8e9',
+    'marginTop': 20,
+    'display': 'flex',
+    'flex-direction': 'column',
+    'flex-wrap': 'wrap',
+    'word-break': 'break-all',
   },
   button: {
     color: blue[500],

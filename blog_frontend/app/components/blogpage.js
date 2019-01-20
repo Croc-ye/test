@@ -14,15 +14,36 @@ import { log } from '../common/logging.js';
 const config = require('../common/config.js');
 
 const styles = {
-  card: {
-    width: '100%',
-    hight: 7000,
-    backgroundColor: '#f1f8e9',
-    marginTop: 20,
+  main: {
+    'display': 'flex',
+    'flex-direction': 'column',
+    'justify-content': 'center',
+    'align-items': 'center',
+    'width': '40',
+    'height': '40',
+    'background-image': 'url(' + 'http://119.23.231.141/mongo_img/bb1a06cfdefa8febec1a598d89692cf.jpg' + ')',
   },
-  button: {
-    color: blue[500],
+  blog_title: {
+    'display': 'flex',
+    'flex-direction': 'center',
+    'flex-direction': 'row',
+    'flex-wrap': 'wrap',
+    'word-break': 'break-all',
   },
+  blog_title_text: {
+    'font-size': 40,
+    'color': '#2979ff',
+  },
+  blog_content: {
+    'display': 'flex',
+    'flex-direction': 'center',
+    'flex-direction': 'row',
+    'flex-wrap': 'wrap',
+    'word-break': 'break-all',
+  },
+  blog_content_text: {
+    'font-size': 20,
+  }
 };
 
 class BlogPage extends React.Component {
@@ -60,19 +81,14 @@ class BlogPage extends React.Component {
   render() {
     const {classes} = this.props;
     return (
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography variant="h4" component="h2">
-            {this.state.blog.title}
-          </Typography>
-          <Typography component="p">
-            {this.state.blog.content}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small" className={classes.button}>Learn More</Button>
-        </CardActions>
-      </Card>
+      <body className={classes.main}>
+        <div className={classes.blog_title}>
+          <div className={classes.blog_title_text}> {this.state.blog.title} </div>
+        </div>
+        <div className={classes.blog_content}>
+          <div className={classes.blog_content_text}> {this.state.blog.content} </div>
+        </div>
+      </body>
     )
   }
 }
