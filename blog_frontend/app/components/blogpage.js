@@ -81,14 +81,14 @@ class BlogPage extends React.Component {
   render() {
     const {classes} = this.props;
     return (
-      <body className={classes.main}>
+      <main className={classes.main}>
         <div className={classes.blog_title}>
           <div className={classes.blog_title_text}> {this.state.blog.title} </div>
         </div>
         <div className={classes.blog_content}>
           <div className={classes.blog_content_text}> {this.state.blog.content} </div>
         </div>
-      </body>
+      </main>
     )
   }
 }
