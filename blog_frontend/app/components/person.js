@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Fab from '@material-ui/core/Fab';
 import IconButton from '@material-ui/core/IconButton';
+import Input from '@material-ui/core/Input';
 import AddIcon from '@material-ui/icons/Add';
 import LockIcon from '@material-ui/icons/LockOutlined';
 import BlogList from '../components/bloglist.js';
@@ -109,6 +110,11 @@ class Person extends React.Component {
     log.info('person page end');
   }
 
+  onAvatarChange(e) {
+    const file_name = document.getElementById("file").value;
+    console.log(file_name);
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -119,6 +125,9 @@ class Person extends React.Component {
             <div className={classes.username}>
               {this.state.user.username} 
             </div>
+            <form id="uploadForm" encType="multipart/form-data" method="post">
+                <Input type="file" name="file" id="file" accept="image/*" onChange={(e)=>{this.onAvatarChange(e);}}>更改头像 </Input>
+            </form>
           </div>
 
           <div className={classes.write_blog}>

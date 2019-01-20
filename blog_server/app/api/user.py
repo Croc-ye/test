@@ -1,7 +1,7 @@
 import flask
 from flask import session, g, jsonify, make_response, request
 from decorator.decorator_tools import parse_user, parse_access, parse_args
-from errors.expection import UnknownError
+from errors.expection import UnknownError, ArgsError
 from db.models.user import User
 from logger.logger import log
 
@@ -36,3 +36,12 @@ def delele_by_id():
 def check_session():
     u = User.by_id(g.user_id)
     return jsonify(u.to_json())
+
+@user_api.route('/update_user_info/', methods=['POST'])
+@parse_user()
+@parse_access()
+def update_user_info():
+    img = request.files.get("user_avatar")
+    if img is None:
+        raise ArgsError("require image file")
+    url = ImageUtil
