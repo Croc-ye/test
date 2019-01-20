@@ -1,10 +1,29 @@
 @charset "utf-8";
 /* CSS Document */
 
-#first {
-  border-radius: 25px;
-  background: #8AC007;
-  padding: 20px; 
-  width: 200px;
-  height: 150px;
+#total {
+  display: flex;
+  background-color: '#f1f8e9';
+  color: '#f1f8e9';
+  font-size: 16;
+  justify-content: space-between;
+}
+
+
+#second {
+  display: flex;
+  background-color: '#f1f8e9';
+  color: '#f1f8e9';
+  font-size: 19;
+  justify-content: space-between;
+}
+
+
+#ye {
+  background-image:url('bg.png');
+  display: flex;
+  background-color:#cccccc;
+  color: '#f1f8e9';
+  font-size: 19;
+  justify-content: space-between;
 }
