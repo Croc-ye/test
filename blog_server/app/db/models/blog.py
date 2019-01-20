@@ -63,6 +63,12 @@ class Blog:
         else:
             return 0
 
+    @classmethod
+    def delete_by_user_blod_id(cls, user_id, user_blog_id):
+        sql = 'delete from %s where user_id = %d and user_blog_id = %d' % (cls.Table, user_id, user_blog_id)
+        result = Database.execute(sql)
+        return result is ()
+
     def to_json(self):
         return {
             "user_blog_id": self.user_blog_id,

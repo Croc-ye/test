@@ -26,3 +26,12 @@ def get_blog(username, user_blog_id):
 def get_all_blog(username):
     blogs = Blog.get_all_blog(username)
     return jsonify([blog.to_json() for blog in blogs])
+
+@blog_api.route('/delete/<user_blog_id>/', methods=['GET'])
+@parse_access()
+@parse_user()
+def delete(user_blog_id):
+    Blog.delete_by_user_blod_id(int(g.user_id), int(user_blog_id))
+    return jsonify({
+        "success": "blog alerady delete",
+    });

@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import green from '@material-ui/core/colors/green';
 import blue from '@material-ui/core/colors/blue';
+import red from '@material-ui/core/colors/red';
 const styles = {
   card: {
     minWidth: 275,
@@ -18,15 +19,28 @@ const styles = {
     'flex-wrap': 'wrap',
     'word-break': 'break-all',
   },
-  button: {
+  button_more: {
     color: blue[500],
   },
+  button_delete: {
+    color: red[500],
+  },
+  button_edit: {
+    color: green[500],
+  },
+  button_view: {
+    'display': 'flex',
+    'flex-direction': 'row',
+    'justify-content': 'space-between',
+  }
 };
 
 function BlogList(props) {
   const { classes } = props;
   const { blog } = props;
-  const { clickfun } = props;
+  const { clickfunMore } = props;
+  const { clickfunEdit } = props;
+  const { clickfunDelete } = props;
   if (!blog) {
     return;
   }
@@ -40,9 +54,19 @@ function BlogList(props) {
           {blog.content}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" className={classes.button} onClick={clickfun}>Learn More</Button>
-      </CardActions>
+      <div className={classes.button_view}>
+        <CardActions>
+          <Button size="small" className={classes.button_more} onClick={clickfunMore}>Learn More</Button>
+        </CardActions>
+
+        <CardActions>
+          <Button size="small" className={classes.button_edit} onClick={clickfunEdit}>edit</Button>
+        </CardActions>
+
+        <CardActions>
+          <Button size="small" className={classes.button_delete} onClick={clickfunDelete}>delete</Button>
+        </CardActions>
+      </div>
     </Card>
   );
 }

@@ -62,11 +62,37 @@ class Person extends React.Component {
 
   converBlogs(blogs) {
     const content = (
-      blogs.map((blog)=>
+      blogs.map((blog, idx)=>
         <div key={blog.user_blog_id}>
-          <BlogList blog={blog} clickfun={(e)=>{
-            mrouter.goToBlogPage(this.state.username, blog.user_blog_id);
-          }}/>
+          <BlogList 
+            blog={blog} 
+            clickfunMore={(e)=>{
+              mrouter.goToBlogPage(this.state.username, blog.user_blog_id);
+            }}
+            
+            clickfunEdit={(e)=>{
+              mrouter.goToBlogPage(this.state.username, blog.user_blog_id);
+            }}
+
+            clickfunDelete={(e)=>{
+              api.request(`${config.blog_delete}${blog.user_blog_id}/`).then((success) => {
+                alert("OK! blog success deleted");
+                const newBlogs = [];
+                for (let i = 0; i < blogs.length; i++) {
+                  if (i == idx) {
+                    continue;
+                  }
+                  newBlogs.push(blogs[i]);
+                }
+                this.setState({
+                  blogs: newBlogs,
+                });
+              }, (error)=> {
+                log.error(error);
+                alert(error);
+              });
+            }}
+          />
         </div>
       )
     );

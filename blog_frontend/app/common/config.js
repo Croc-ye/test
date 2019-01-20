@@ -7,6 +7,7 @@ module.exports = {
   checkSession: '/user/check_session/',
   blogs: '/blog/get_all_blog/',
   blog: '/blog/get_blog/',
+  blog_delete: '/blog/delete/',
   limitUserNameLength: 15,
   limitUserPasswordLength: 15,
   timeout: 10000, // in ms
