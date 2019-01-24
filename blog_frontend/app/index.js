@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Link, Switch} from 'react-router-dom';
 
 import First from './page/first.js';
+import Profile from './page/profile.js';
 import Login from './components/login.js';
 
 import history from './common/history.js';
@@ -19,7 +20,7 @@ class AppRouter extends React.Component {
     return (
       <Router history={history}>
         <Switch>
-          <Route exact path="/" component={First}/>
+          <Route exact path="/" component={Profile}/>
           <Route exact path="/per" component={First}/>
           <Route path="*" component={First}/>
         </Switch>
