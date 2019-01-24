@@ -24,7 +24,6 @@ const config = require('../common/config.js');
 
 const styles = theme => ({
   main: {
-    backgroundColor: green[700],
     width: 'auto',
     display: 'block', // Fix IE 11 issue.
     marginLeft: theme.spacing.unit * 3,
@@ -34,6 +33,7 @@ const styles = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
+    'backgroundColor': "F5F4D7"
   },
   paper: {
     marginTop: theme.spacing.unit * 8,

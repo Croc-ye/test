@@ -11,7 +11,7 @@ from testing.api import ApiTest
 from testing.database import DatabaseTest
 from testing.util import gen_random_string
 
-from db.models.user import User
+from models.user import User
 
 class UserTest(ApiTest, DatabaseTest):
     mock_user = {

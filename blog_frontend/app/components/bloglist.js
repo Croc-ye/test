@@ -9,7 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import green from '@material-ui/core/colors/green';
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
-const styles = {
+import { api } from '../common/requestClient.js';
+const styles = (theme) => ({
   card: {
     minWidth: 275,
     'background-color': '#f1f8e9',
@@ -32,8 +33,15 @@ const styles = {
     'display': 'flex',
     'flex-direction': 'row',
     'justify-content': 'space-between',
+  },
+  content: {
+    'margin-top': theme.spacing.unit,
+    'white-space':'pre',
+  },
+  content_title: {
+    'white-space':'pre',
   }
-};
+});
 
 function BlogList(props) {
   const { classes } = props;
@@ -41,31 +49,31 @@ function BlogList(props) {
   const { clickfunMore } = props;
   const { clickfunEdit } = props;
   const { clickfunDelete } = props;
+  const { editAble } = props;
   if (!blog) {
     return;
   }
+
   return (
     <Card className={classes.card}>
       <CardContent>
-        <Typography variant="h4" component="h2">
+        <Typography variant="h4" component="h2" className={classes.content_title}>
           {blog.title}
         </Typography>
-        <Typography component="p">
+        <Typography component="p" className={classes.content}>
           {blog.content}
         </Typography>
       </CardContent>
       <div className={classes.button_view}>
-        <CardActions>
-          <Button size="small" className={classes.button_more} onClick={clickfunMore}>Learn More</Button>
-        </CardActions>
-
-        <CardActions>
+        <Button size="small" className={classes.button_more} onClick={clickfunMore}>Learn More</Button>
+        {
+          editAble && 
           <Button size="small" className={classes.button_edit} onClick={clickfunEdit}>edit</Button>
-        </CardActions>
-
-        <CardActions>
+        }
+        {
+          editAble && 
           <Button size="small" className={classes.button_delete} onClick={clickfunDelete}>delete</Button>
-        </CardActions>
+        }
       </div>
     </Card>
   );

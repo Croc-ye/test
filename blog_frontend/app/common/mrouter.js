@@ -16,7 +16,18 @@ function goToBlogPage(username, user_blog_id) {
   history.push(path);
 }
 
+function goToWriteBlogPage() {
+  const path = "/person/blog/write_blog/";
+  history.push(path);
+}
+
+function backOnePage() {
+  history.go(-1);
+}
+
 export default {
   goToPersonPage,
   goToBlogPage,
+  goToWriteBlogPage,
+  backOnePage,
 }

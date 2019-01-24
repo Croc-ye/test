@@ -11,7 +11,9 @@ import Input from '@material-ui/core/Input';
 import AddIcon from '@material-ui/icons/Add';
 import LockIcon from '@material-ui/icons/LockOutlined';
 import BlogList from '../components/bloglist.js';
+import Search from '../components/search.js';
 import mrouter from '../common/mrouter.js';
+import FriendList from './friendlist.js';
 import { api } from '../common/requestClient.js';
 import { log } from '../common/logging.js';
 
@@ -47,6 +49,9 @@ const styles = theme => ({
   avatar_with_username: {
     'display': 'flex',
     'flex-directon': 'row',
+  },
+  hidden: {
+    'display': 'none',
   }
 });
 
@@ -57,6 +62,7 @@ class Person extends React.Component {
       blogs: [],
       user: {},
       username: this.props.username ? this.props.username : this.props.match.params.username,
+      editAble: false,
     }
   }
 
@@ -65,7 +71,8 @@ class Person extends React.Component {
       blogs.map((blog, idx)=>
         <div key={blog.user_blog_id}>
           <BlogList 
-            blog={blog} 
+            blog={blog}
+            editAble={this.state.editAble}
             clickfunMore={(e)=>{
               mrouter.goToBlogPage(this.state.username, blog.user_blog_id);
             }}
@@ -75,7 +82,7 @@ class Person extends React.Component {
             }}
 
             clickfunDelete={(e)=>{
-              api.request(`${config.blog_delete}${blog.user_blog_id}/`).then((success) => {
+              api.request(`${config.blogDelete}${blog.user_blog_id}/`).then((success) => {
                 alert("OK! blog success deleted");
                 const newBlogs = [];
                 for (let i = 0; i < blogs.length; i++) {
@@ -115,10 +122,23 @@ class Person extends React.Component {
     })
   }
 
+  setUserInfo(user, editAble) {
+    this.setState({
+      user: user,
+      editAble: editAble,
+    });
+  }
+
   getUserInfo(username) {
     api.request(config.info + username + '/').then((res) => {
-      this.setState({
-        user: res,
+      api.request(config.checkSession).then((canEdit)=> {
+        if (canEdit.username === username) {
+          this.setUserInfo(res, true);
+        } else {
+          this.setUserInfo(res, false);
+        }
+      }, (notEdit) => {
+        this.setUserInfo(res, false);
       });
     },
     (error) => {
@@ -136,37 +156,90 @@ class Person extends React.Component {
     log.info('person page end');
   }
 
-  onAvatarChange(e) {
-    const file_name = document.getElementById("file").value;
-    console.log(file_name);
+  onAvatarChange() {
+    if (!this.state.editAble) {
+      return;
+    }
+    const that = this;
+    const file = document.getElementById('file');
+    file.click(); // 调取系统选择图片的弹框
+    
+    // 监听input的file变化值
+    file.onchange = function (event) {
+        let file = event.target.files[0];
+        if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif') {
+          alert('不是有效的图片文件!');
+          return;
+        }
+        upload(file);
+    }
+
+    function upload(file) {
+        let xhr = new XMLHttpRequest();
+        let formData = new FormData();
+        formData.set('filename', file);
+        xhr.withCredentials = true;
+        xhr.open('post', config.apiHostPrefix + config.userAvatar, true);
+        xhr.send(formData);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              const user = JSON.parse(xhr.responseText);
+              that.setState({
+                user: user,
+              });
+            } else {
+              alert(JSON.parse(xhr.responseText));
+            }
+          }
+        }
+    }
   }
 
+  onClickWriteBlog() {
+    mrouter.goToWriteBlogPage();
+  }
+  callback(blogs) {
+    this.setState({
+      blogs: blogs,
+    });
+  }
   render() {
     const { classes } = this.props;
     return (
       <main className={classes.main}>
         <div className={classes.root}>
           <div className={classes.avatar_with_username}>
-            <Avatar src={this.state.user.avatar} className={classes.avatar_big} > User </Avatar>
+            <Avatar id="avatar" onClick={()=>{this.onAvatarChange();}} src={this.state.user.avatar} className={classes.avatar_big} > User </Avatar>
             <div className={classes.username}>
               {this.state.user.username} 
             </div>
             <form id="uploadForm" encType="multipart/form-data" method="post">
-                <Input type="file" name="file" id="file" accept="image/*" onChange={(e)=>{this.onAvatarChange(e);}}>更改头像 </Input>
+                <Input className={classes.hidden} type="file" name="file" id="file" accept="image/*" >更改头像 </Input>
             </form>
           </div>
 
+          <div>
+            <Search username={this.state.username} callback={(blogs)=>{this.callback(blogs)}}/>
+          </div>
+
+          {this.state.editAble && 
           <div className={classes.write_blog}>
             <Fab size="small" color="secondary" aria-label="Add" className={classes.write_blog_icon}>
-              <AddIcon />
+              <AddIcon onClick={()=>{this.onClickWriteBlog()}} />
             </Fab>
-          </div>
+          </div>}
 
         </div>
 
         <hr />
         <hr />
         {this.converBlogs(this.state.blogs)}
+
+        <hr />
+        <hr />
+        <FriendList /> 
+
       </main>
     );
   }

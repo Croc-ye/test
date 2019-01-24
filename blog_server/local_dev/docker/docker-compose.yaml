@@ -43,7 +43,7 @@ services:
       - DB_HOST=${DB_HOST}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
     volumes:
-      - ../../app/db:/db
+      - ../db:/db
       - ../shell:/shell
     depends_on:
       - blog_db
