@@ -74,7 +74,15 @@ class BlogList extends React.Component {
         {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
         {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
       ],
+      loveOrNot: ["", "red"],
+      loveId: 0,
     }
+  }
+
+  onLoveOrNotClick() {
+    this.setState({
+      loveId: this.state.loveId === 0 ? 1 : 0,
+    });
   }
 
   componentWillMount() {
@@ -112,7 +120,7 @@ class BlogList extends React.Component {
 
         <CardActions className={classes.actions} disableActionSpacing>
 
-          <IconButton aria-label="Add to favorites">
+          <IconButton aria-label="Add to favorites" style={{"color":this.state.loveOrNot[this.state.loveId]}} onClick={(e)=>{this.onLoveOrNotClick()}}>
             <FavoriteIcon />
           </IconButton>
 
