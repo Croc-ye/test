@@ -18,12 +18,15 @@ import LockIcon from '@material-ui/icons/LockOutlined';
 import { Link } from 'react-router-dom'
 import { api } from '../common/requestClient.js';
 import { log } from '../common/logging.js';
+import { account } from '../common/account.js';
 import mrouter from '../common/mrouter.js';
+import hint from '../common/message.js';
 
 const config = require('../common/config.js');
 
 const styles = theme => ({
   main: {
+    backgroundColor: green[700],
     width: 'auto',
     display: 'block', // Fix IE 11 issue.
     marginLeft: theme.spacing.unit * 3,
@@ -33,7 +36,6 @@ const styles = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
-    'backgroundColor': "F5F4D7"
   },
   paper: {
     marginTop: theme.spacing.unit * 8,
@@ -65,6 +67,13 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.buttonKey = 13;
+    
+    api.request(config.checkSession).then(
+      (success)=>{
+        account.login(success);
+        mrouter.goToFirstPage();
+      }
+    );
   }
 
   loginRequest(event) {
@@ -77,9 +86,10 @@ class Login extends React.Component {
     }
     api.request(config.login, args).then((success) => {
       log.info('success ' + JSON.stringify(success));
-      mrouter.goToPersonPage(success.username);
+      account.login(success);
+      mrouter.goToFirstPage();
     }, (error) => {
-      alert(error);
+      hint.showDialog("Message", "unmatch password, please retry it!", null, null);
       log.error('error ' + JSON.stringify(error));
     });
   }

@@ -63,16 +63,6 @@ class BlogList extends React.Component {
     this.state = {
       blogs: [
         {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
       ],
       loveOrNot: ["", "red"],
       loveId: 0,
@@ -148,7 +138,7 @@ class BlogList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div >
         {this.getBlogList()}
       </div>
     );

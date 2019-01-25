@@ -35,6 +35,7 @@ const styles = theme => ({
     'width': '100%',
     'height': '100%',
     'justify-content': 'flex-start',
+    'align-items': 'flex-start',
   },
   appBar: {
     'display': 'flex',
@@ -91,12 +92,15 @@ class AppTopBar extends React.Component {
 
           <ListItem button>
             <ListItemIcon><AccountCircle /></ListItemIcon>
-            <ListItemText primary="profile" />
+            <ListItemText 
+              primary="profile" 
+              onClick={(e)=>{mrouter.goToProfilePage()}}
+            />
           </ListItem>
 
           <Divider />
 
-          <ListItem button onClick={(e)=>{hint.showDialog("ok","ok",null,null)}}>
+          <ListItem button onClick={(e)=>{mrouter.goToLoginPage()}}>
             <ListItemIcon><DeleteIcon /></ListItemIcon>
             <ListItemText primary="logout" />
           </ListItem>
@@ -124,7 +128,7 @@ class AppTopBar extends React.Component {
 
     const Title = () => (
       <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-        Star project
+        Back
       </Typography>
     );
 
@@ -132,6 +136,7 @@ class AppTopBar extends React.Component {
       <div className={classes.Search}>
         <SearchIcon className={classes.searchIcon}/>
         <Input
+          autoFocus
           className={classes.searchInput}
           placeholder="search...."
         />

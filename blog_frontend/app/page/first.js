@@ -18,7 +18,6 @@ const styles = theme => ({
     'flex-direction': 'column',
     'width': '100%',
     'height': '100%',
-    'background-color':"#F5F4D7",
   },
   blog_and_userlist: {
     'display': 'flex',
@@ -54,14 +53,14 @@ class First extends React.Component {
   render() {
     const {classes} = this.props;
     return (
-      <main className={classes.main}>
+      <main className={classes.main}  >
         <AppTopBar />
         <div className={classes.blog_and_userlist}>
           <div className={classes.blog_list}>
             <BlogList />
           </div>
 
-          <CssBaseline  />
+          <hr />
 
           <div className={classes.user_list}>
             <UserList />

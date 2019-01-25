@@ -37,12 +37,18 @@ class HintMessage extends React.Component {
       open: false,
     });
     this.failIt();
+    if (this.props.callbackOK) {
+      this.props.callbackOK();
+    }
   }
   handleCancel() {
     this.setState({
       open: false,
     });
     this.failIt();
+    if (this.props.callbackCancel) {
+      this.props.callbackCancel();
+    }
   }
 
   showDialog() {
@@ -65,10 +71,10 @@ class HintMessage extends React.Component {
             </DialogContent>
             <DialogActions>
               <Button onClick={(e)=>{this.handleCancel()}} color="primary">
-                Disagree
+                Cancel
               </Button>
               <Button onClick={(e)=>{this.handleOK()}} color="primary" autoFocus>
-                Agree
+                OK
               </Button>
             </DialogActions>
           </Dialog>

@@ -9,7 +9,6 @@ function showDialog(title, message, callbackOK, callbackCancel) {
     document.getElementById('modal'),
   );
 }
-  
 
 export default {
   showDialog,
