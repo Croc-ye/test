@@ -22,9 +22,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Icon from '@material-ui/core/Icon';
 import Tooltip from '@material-ui/core/Tooltip';
 import mrouter from '../common/mrouter.js';
 import hint from '../common/message.js';
+import {account} from '../common/account.js';
 import { api } from '../common/requestClient.js';
 import { log } from '../common/logging.js';
 const config = require('../common/config.js');
@@ -92,11 +94,24 @@ class AppTopBar extends React.Component {
       <div className={classes.list}>
         <List>
 
-          <ListItem button onClick={(e)=>{mrouter.goToProfilePage()}}>
+          <ListItem button onClick={(e)=>{
+            if (account.hasLogin()) {
+              mrouter.goToProfilePage(account.user.username);
+            } else {
+              mrouter.goToLoginPage();
+            }
+          }}>
             <ListItemIcon><AccountCircle /></ListItemIcon>
             <ListItemText 
               primary="profile" 
             />
+          </ListItem>
+
+          <Divider />
+
+          <ListItem button onClick={(e)=>{mrouter.goToWriteBlogPage()}}>
+            <ListItemIcon><Icon color="action" /></ListItemIcon>
+            <ListItemText primary="write blog" />
           </ListItem>
 
           <Divider />

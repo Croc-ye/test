@@ -36,6 +36,9 @@ class Account {
         }
       }, (error) => {
         log.error(error);
+        if (callback) {
+          callback();
+        }
       }
     );
   }

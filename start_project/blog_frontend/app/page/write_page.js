@@ -39,6 +39,7 @@ const styles = theme => ({
     'color': '#258ef7',
   },
   icon_send: {
+    'margin-left': '10%',
   },
 });
 

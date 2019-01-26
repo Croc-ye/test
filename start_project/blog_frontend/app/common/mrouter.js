@@ -20,9 +20,17 @@ function goToBlogPage(username, user_blog_id) {
   history.push(path);
 }
 
-function goToProfilePage() {
+function goToProfilePage(username) {
+  const path = `/profile/${username}`;
+  if (issame(path)) {
+    return;
+  }
+  history.push(path);
+}
+
+function goToWriteBlogPage() {
   if (account.hasLogin()) {
-    const path = `/profile/${account.user.username}`;
+    const path = "/blog/write_blog/";
     if (issame(path)) {
       return;
     }
@@ -30,14 +38,6 @@ function goToProfilePage() {
   } else {
     goToLoginPage();
   }
-}
-
-function goToWriteBlogPage() {
-  const path = "/person/blog/write_blog/";
-  if (issame(path)) {
-    return;
-  }
-  history.push(path);
 }
 
 function goToLoginPage() {
