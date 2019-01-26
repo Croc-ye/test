@@ -12,8 +12,11 @@ function issame(changePath) {
   } else return false;
 }
 
-function goToBlogPage(username) {
-  const path = `/blog`;
+function goToBlogPage(username, user_blog_id) {
+  const path = `/blog/${username}/${user_blog_id}`;
+  if (issame(path)) {
+    return;
+  }
   history.push(path);
 }
 

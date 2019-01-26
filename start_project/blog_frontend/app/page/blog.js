@@ -3,6 +3,9 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import AppTopBar from '../components/app_top_bar.js';
 import Avatar from '@material-ui/core/Avatar';
+import {log} from '../common/logging.js';
+import {api} from '../common/requestClient.js';
+const config = require('../common/config.js');
 
 const styles = theme => ({
   main: {
@@ -63,8 +66,6 @@ class BlogPage extends React.Component {
     super(props);
     this.state = {
       blog: {
-        title: "flask系统文档教程",
-        content: "jbo"
       },
       comment: [
         {user:{username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"}, comment: "hello"},
@@ -76,6 +77,15 @@ class BlogPage extends React.Component {
   }
 
   componentWillMount() {
+    api.request(`${config.blog}${this.props.match.params.username}/${this.props.match.params.user_blog_id}/`).then(
+      (success) => {
+        this.setState({
+          blog: success,
+        });
+      }, (error) => {
+        log.error(error);
+      }
+    );
   }
 
   componentWillUnmount() {

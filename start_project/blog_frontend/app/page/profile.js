@@ -135,11 +135,7 @@ class Profile extends React.Component {
         {username:"python", comment:"hello"},
       ],
       stack: null,
-      blogs: [
-        {title:"blog", content:"I love react"},
-        {title:"blog", content:"I love react"},
-        {title:"blog", content:"I love react"},
-      ],
+      blogs: [],
     };
   }
 
@@ -171,7 +167,7 @@ class Profile extends React.Component {
   }
 
   handleOnBlogClick(idx) {
-    alert(idx);
+    mrouter.goToBlogPage(this.state.user.username, idx);
   }
   onEnter(id) {
     this.state.stack = document.getElementById(id).style;
@@ -193,7 +189,7 @@ class Profile extends React.Component {
                 id={`blog_title_${idx}`} 
                 onMouseOver={(e)=>this.onEnter(`blog_title_${idx}`)}
                 onMouseOut={(e)=>this.onOut(`blog_title_${idx}`)}
-                onClick={(e)=>{this.handleOnBlogClick(idx)}}
+                onClick={(e)=>{this.handleOnBlogClick(blog.user_blog_id)}}
               > 
                 {blog.title} 
               </font>
