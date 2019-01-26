@@ -68,12 +68,14 @@ class Login extends React.Component {
     super(props);
     this.buttonKey = 13;
     
-    api.request(config.checkSession).then(
-      (success)=>{
-        account.login(success);
-        mrouter.goToFirstPage();
-      }
-    );
+    if (!account.hasLogin()) {
+      api.request(config.checkSession).then(
+        (success)=>{
+          account.login(success);
+          mrouter.goToFirstPage();
+        }
+      );
+    }
   }
 
   loginRequest(event) {

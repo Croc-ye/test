@@ -71,20 +71,15 @@ const styles = theme => ({
   userinfo: {
     'display': 'flex',
     'flex-direction': 'column',
-    'width': '100%',
-    'height': '100%',
-    'justify-content': 'flex-end',
+    'justify-content': 'center',
     'align-items': 'center',
   },
   avatar: {
     'width': theme.spacing.unit * 7,
     'height': theme.spacing.unit * 7,
     'background-color': 'red',
-     'margin': 10,
   },
   username: {
-    'width': '5%',
-    'height': '5%',
   },
   info_view: {
     'display': 'flex',
@@ -108,9 +103,6 @@ const styles = theme => ({
     "color":"#f41835", 
     "marginLeft": "20px",
     'fontSize': theme.spacing.unit * 2,
-  },
-  search: {
-    'margin-left': "40%"
   },
   new_blog: {
     "color":'#258ef7',

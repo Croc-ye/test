@@ -6,6 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
+import ThreeSixtyIcon from '@material-ui/icons/ThreeSixty';
 import Input from '@material-ui/core/Input';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
@@ -21,6 +22,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Tooltip from '@material-ui/core/Tooltip';
 import mrouter from '../common/mrouter.js';
 import hint from '../common/message.js';
 import { api } from '../common/requestClient.js';
@@ -127,16 +129,19 @@ class AppTopBar extends React.Component {
     const {classes} = this.props;
 
     const Title = () => (
-      <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-        Back
-      </Typography>
+      <div onClick={(e)=>{mrouter.backOnePage()}}>
+        <Tooltip title="Back to previous page">
+          <IconButton color="inherit">
+            <ThreeSixtyIcon />
+          </IconButton>
+        </Tooltip>
+      </div>
     );
 
     const Search = () => (
       <div className={classes.Search}>
         <SearchIcon className={classes.searchIcon}/>
         <Input
-          autoFocus
           className={classes.searchInput}
           placeholder="search...."
         />

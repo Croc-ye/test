@@ -59,7 +59,7 @@ function goToFirstPage() {
 }
 
 function backOnePage() {
-  history.go(-1);
+  history.goBack();
 }
 
 export default {
