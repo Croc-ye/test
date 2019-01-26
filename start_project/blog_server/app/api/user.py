@@ -21,6 +21,14 @@ def login(username, password):
     session['user_id'] = u.user_id
     return jsonify(u.to_json())
 
+@user_api.route('/logout/', methods=['GET'])
+@parse_user()
+def logout():
+    session.pop('user_id', None)
+    return jsonify({
+        "success": "logout success",
+    })
+
 @user_api.route('/delete/', methods=['GET'])
 @parse_user()
 def delele_by_id():

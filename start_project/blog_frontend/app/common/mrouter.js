@@ -38,12 +38,13 @@ function goToWriteBlogPage() {
 }
 
 function goToLoginPage() {
-  account.logout();
-  const path = "/";
-  if (issame(path)) {
-    return;
-  }
-  history.push(path);
+  account.logout(() => {
+    const path = "/";
+    if (issame(path)) {
+      return;
+    }
+    history.push(path);
+  });
 }
 
 function goToFirstPage() {

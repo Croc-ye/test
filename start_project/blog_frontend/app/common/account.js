@@ -1,6 +1,9 @@
 'use strict'
 
 import {log} from './logging.js';
+import {api} from './requestClient.js';
+import hint from './message.js';
+const config = require('./config.js');
 
 class Account {
   constructor() {
@@ -22,9 +25,19 @@ class Account {
     return this.user.username === username;
   }
 
-  logout() {
+  logout(callback) {
     this.isLogin = false;
     this.user = {};
+    api.request(config.logout).then(
+      (success) => {
+        log.info(success);
+        if (callback) {
+          callback();
+        }
+      }, (error) => {
+        log.error(error);
+      }
+    );
   }
 
   hasLogin() {
