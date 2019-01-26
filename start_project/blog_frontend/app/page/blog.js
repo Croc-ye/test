@@ -68,9 +68,6 @@ class BlogPage extends React.Component {
       blog: {
       },
       comment: [
-        {user:{username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"}, comment: "hello"},
-        {user:{username:"ruiyangtang", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"}, comment: "hello"},
-        {user:{username:"pythonlan", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"}, comment: "hello"},
       ],
       stack: null,
     }
@@ -79,9 +76,19 @@ class BlogPage extends React.Component {
   componentWillMount() {
     api.request(`${config.blog}${this.props.match.params.username}/${this.props.match.params.user_blog_id}/`).then(
       (success) => {
-        this.setState({
-          blog: success,
-        });
+        api.request(config.getComment, {
+          comment_list: success.comment,
+        }).then(
+          (comment) => {
+            this.setState({
+              blog: success,
+              comment: comment,
+            });
+          },
+          (error) => {
+            log.error(error);
+          }
+        );
       }, (error) => {
         log.error(error);
       }

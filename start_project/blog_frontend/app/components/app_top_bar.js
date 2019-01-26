@@ -92,11 +92,10 @@ class AppTopBar extends React.Component {
       <div className={classes.list}>
         <List>
 
-          <ListItem button>
+          <ListItem button onClick={(e)=>{mrouter.goToProfilePage()}}>
             <ListItemIcon><AccountCircle /></ListItemIcon>
             <ListItemText 
               primary="profile" 
-              onClick={(e)=>{mrouter.goToProfilePage()}}
             />
           </ListItem>
 
