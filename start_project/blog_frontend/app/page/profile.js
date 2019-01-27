@@ -246,16 +246,9 @@ class Profile extends React.Component {
           </div>
         </div>
 
+        
         <hr />
-        <div>
-          <font 
-            id="write_blog"
-            className={classes.new_blog}
-            onMouseOver={(e)=>this.onEnter("write_blog")}
-            onMouseOut={(e)=>this.onOut("write_blog")}
-            onClick={(e)=>mrouter.goToWriteBlogPage()}
-          >写写博客</font>
-        </div>
+
       </div>
     );
 

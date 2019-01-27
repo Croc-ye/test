@@ -4,6 +4,10 @@ import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import Avatar from '@material-ui/core/Avatar';
 import hint from '../common/message.js';
+import mrouter from '../common/mrouter.js';
+import {api} from '../common/requestClient.js';
+import {log} from '../common/logging.js';
+const config = require('../common/config.js');
 
 const styles = theme => ({
   main: {
@@ -26,6 +30,8 @@ const styles = theme => ({
   },
   username: {
     'font-size': theme.spacing.unit * 2,
+  },
+  user_list: {
   }
 });
 
@@ -42,6 +48,16 @@ class UserList extends React.Component {
   }
 
   componentWillMount() {
+    api.request(config.friendUser).then(
+      (success) => {
+        this.setState({
+          users: success,
+        });
+      },
+      (error) => {
+        log.error(error);
+      }
+    );
   }
 
   componentWillUnmount() {
@@ -52,9 +68,13 @@ class UserList extends React.Component {
     const result = (
       this.state.users.map((user, idx) => (
         <div key={idx}>
-          <IconButton aria-label="Share" onClick={(e)=>{hint.showDialog(1, 2, 3, 4)}}>
+          <IconButton 
+            aria-label="Share" 
+            onClick={(e)=>{mrouter.goToProfilePage(user.username)}}
+            className={classes.user_list}
+          >
             <div className={classes.avatar_and_username}>
-              <Avatar src={user.avatar} />
+              <Avatar src={user.avatar} > {user.username[0]} </Avatar>
               <p className={classes.username}> {user.username} </p>
             </div>
           </IconButton>

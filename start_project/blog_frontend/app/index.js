@@ -27,6 +27,7 @@ class AppRouter extends React.Component {
           <Route exact path="/blog" component={BlogPage}/>
           <Route exact path="/first" component={First}/>
           <Route exact path="/profile/:username" component={Profile}/>
+          <Route exact path="/profile/other/:username" component={Profile}/>
           <Route exact path="/blog/write_blog" component={WriteBlog}/>
           <Route exact path="/blog/:username/:user_blog_id" component={BlogPage}/>
           <Route path="*" component={Login}/>
