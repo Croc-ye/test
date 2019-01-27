@@ -190,7 +190,7 @@ class BlogPage extends React.Component {
             <font>{this.state.blog.title}</font>
           </div>
 
-          <hr style={{"width":1000}}/>
+          <hr style={{"width":'100%'}}/>
 
           <div className={classes.blog_content}>
             {this.state.blog.content}
@@ -204,7 +204,7 @@ class BlogPage extends React.Component {
               className={classes.comment_color}
               onClick={(e)=>{this.onCommentClick()}}
             >留言:</font>
-            <hr style={{"width":1000}} />
+            <hr style={{"width":'100%'}} />
 
             <div style={{"display": this.state.hide}}>
               <TextField
