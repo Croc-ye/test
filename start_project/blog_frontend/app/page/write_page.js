@@ -85,9 +85,11 @@ class WriteBlog extends React.Component {
     const content = document.getElementById("blog_content").value;
     if (!title) {
       hint.showDialog("Warning", "title can not be empty", null, null);
+      return;
     }
     if (!content) {
       hint.showDialog("Warning", "content can not be empty", null, null); 
+      return;
     }
     api.request(config.blogWrite, {
       title: title,
@@ -95,8 +97,8 @@ class WriteBlog extends React.Component {
     }).then(
       (success) => {
         hint.showDialog("finish", "blog already send", 
-          mrouter.goToBlogPage(account.user.username, success.user_blog_id),
-          mrouter.goToBlogPage(account.user.username, success.user_blog_id),);
+          () => {mrouter.goToBlogPage(account.user.username, success.user_blog_id)},
+          () => {mrouter.goToBlogPage(account.user.username, success.user_blog_id)});
       },
       (error) => {
         log.error(error);
