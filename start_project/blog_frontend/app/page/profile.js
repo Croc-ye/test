@@ -66,7 +66,8 @@ const styles = theme => ({
     'font-size': theme.spacing.unit * 2,
   },
   blog_list_other: {
-    'font-size': theme.spacing.unit,
+    'font-size': theme.spacing.unit * 1,
+    'margin-top': '2%',
   },
   userinfo: {
     'display': 'flex',
@@ -189,7 +190,9 @@ class Profile extends React.Component {
             <hr />
             <font className={classes.blog_list_content}> {blog.content}</font>
 
-            <font className={classes.blog_list_other}> other </font>
+            <div>
+              <font className={classes.blog_list_other}> other </font>
+            </div>
           </div>
         </div>
       ))

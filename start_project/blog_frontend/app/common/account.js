@@ -51,6 +51,22 @@ class Account {
     alert("???");
   }
 
+  tryLogin(successCallBack, failCallBack) {
+    api.request(config.checkSession).then(
+      (success)=>{
+        this.login(success);
+        if (successCallBack) {
+          successCallBack();
+        }
+      },
+      (error) => {
+        if (failCallBack) {
+          failCallBack();
+        }
+      }
+    );
+  }
+
 };
 
 

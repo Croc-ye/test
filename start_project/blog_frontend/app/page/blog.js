@@ -112,7 +112,11 @@ class BlogPage extends React.Component {
   }
 
   onCommentClick() {
-    this.changeCommentText();
+    if (!account.hasLogin()) {
+      account.tryLogin(this.changeCommentText, mrouter.goToLoginPage);
+    } else {
+      this.changeCommentText();
+    }
   }
 
   onEnter(id) {
