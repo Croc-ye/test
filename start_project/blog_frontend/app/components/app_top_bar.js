@@ -11,6 +11,7 @@ import Input from '@material-ui/core/Input';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import MailIcon from '@material-ui/icons/Mail';
+import Avatar from '@material-ui/core/Avatar';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
@@ -178,7 +179,10 @@ class AppTopBar extends React.Component {
         </IconButton>
 
         <IconButton color="inherit" onClick={(e)=>{this.openRightProfile(e)}}>
-            <AccountCircle />
+            { account.hasLogin() ? 
+              <Avatar src={account.user.avatar}> {account.user.username[0]} </Avatar>
+              :
+              <AccountCircle />}
         </IconButton>
 
       </div>

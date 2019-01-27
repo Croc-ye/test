@@ -6,8 +6,9 @@ import Avatar from '@material-ui/core/Avatar';
 import TextField from '@material-ui/core/TextField';
 import {log} from '../common/logging.js';
 import {api} from '../common/requestClient.js';
-import {hint} from '../common/message.js';
+import hint from '../common/message.js';
 import {account} from '../common/account.js';
+import mrouter from '../common/mrouter.js';
 const config = require('../common/config.js');
 
 const styles = theme => ({
