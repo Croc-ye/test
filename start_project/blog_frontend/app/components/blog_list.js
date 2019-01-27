@@ -35,8 +35,8 @@ const styles = theme => ({
     'display': 'flex',
     'flex-direction': 'column',
     'align-items': 'flex-start',
-    'height': 500,
-    'width': 400,
+    'height': 300,
+    'width': 250,
     'margin-top': theme.spacing.unit * 4,
     'margin-right': theme.spacing.unit * 4,
     'margin-left': theme.spacing.unit * 4,
@@ -53,7 +53,7 @@ const styles = theme => ({
   },
   CardContent: {
     'width': '100%',
-    'height': '27%',
+    'height': '77%',
   },
 });
 
@@ -104,12 +104,6 @@ class BlogList extends React.Component {
             }
             title={blog.title}
             subheader={blog.create_time}
-          />
-
-          <CardMedia
-            className={classes.media}
-            image="http://119.23.231.141:8082/mongo_img/meishi.jpg"
-            title="mongo_img"
           />
 
           <CardContent className={classes.CardContent}>
