@@ -29,7 +29,7 @@ CREATE TABLE `blog` (
   `title` json DEFAULT NULL,
   `content` json DEFAULT NULL,
   `love` int(11) NOT NULL DEFAULT '0',
-  `comment` text,
+  `comment` text NOT NULL DEFAULT "",
   PRIMARY KEY (`id`),
   KEY `USERBLOGID_TO_BLOG` (`user_blog_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;

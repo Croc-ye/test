@@ -5,10 +5,22 @@ import AppTopBar from '../components/app_top_bar.js';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-
+import Fab from '@material-ui/core/Fab';
+import NavigationIcon from '@material-ui/icons/Navigation';
+import hint from '../common/message.js';
+import {api} from '../common/requestClient.js';
+import {account} from '../common/account.js';
+import mrouter from '../common/mrouter.js';
+const config = require('../common/config.js');
 const styles = theme => ({
   main: {
     'dispaly': 'flex',
+    'flex-direction': 'column',
+    'width': '100%',
+    'height': '100%',
+  },
+  with_icon: {
+    'display': 'flex',
     'flex-direction': 'column',
     'width': '100%',
     'height': '100%',
@@ -39,7 +51,10 @@ const styles = theme => ({
     'color': '#258ef7',
   },
   icon_send: {
-    'margin-left': '10%',
+    'justify-content': 'flex-end',
+    'margin': theme.spacing.unit,
+    'margin-left': '86%',
+    'margin-top': '-34%',
   },
 });
 
@@ -65,6 +80,30 @@ class WriteBlog extends React.Component {
     }
   }
 
+  onSendClick() {
+    const title = document.getElementById("blog_title").value;
+    const content = document.getElementById("blog_content").value;
+    if (!title) {
+      hint.showDialog("Warning", "title can not be empty", null, null);
+    }
+    if (!content) {
+      hint.showDialog("Warning", "content can not be empty", null, null); 
+    }
+    api.request(config.blogWrite, {
+      title: title,
+      content: content,
+    }).then(
+      (success) => {
+        hint.showDialog("finish", "blog already send", 
+          mrouter.goToBlogPage(account.user.username, success.user_blog_id),
+          mrouter.goToBlogPage(account.user.username, success.user_blog_id),);
+      },
+      (error) => {
+        log.error(error);
+      }
+    );
+  }
+
   writeBlog() {
     const {classes} = this.props;
     const result = () => (
@@ -73,7 +112,7 @@ class WriteBlog extends React.Component {
         <div className={classes.write_blog}>
           <div className={classes.write_blog_title}>
             <TextField
-              id="title"
+              id="blog_title"
               label="Title"
               placeholder="Please enter you title here"
               helperText="hello start project"
@@ -98,6 +137,13 @@ class WriteBlog extends React.Component {
           </div>
 
           
+        </div>
+
+        <div className={classes.icon_send} onClick={(e)=>{this.onSendClick()}}>
+          <Fab variant="extended" color="primary" aria-label="Add">
+            <NavigationIcon />
+            send it
+          </Fab>
         </div>
 
       </div>

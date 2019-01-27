@@ -86,6 +86,9 @@ class BlogPage extends React.Component {
             });
           },
           (error) => {
+            this.setState({
+              blog: success,
+            });
             log.error(error);
           }
         );
