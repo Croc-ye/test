@@ -165,7 +165,7 @@ class BlogPage extends React.Component {
     const Comment = () => (
       this.state.comment.map((value, idx) => (
         <div key={idx} style={{'display':'flex','flexDirection':'row', 'marginBottom':'2%'}}>
-          <div className={classes.user}>
+          <div className={classes.user} onClick={(e)=>mrouter.goToProfilePage(value.user.username)}>
             <Avatar src={value.user.avatar}> {value.user.username[0]} </Avatar>
             <font
               id={`comment_id_${idx}`}

@@ -77,3 +77,9 @@ class BlogDAO:
         sql = 'select user_blog_id, title, content, comment, love from %s where user_id=%d and title like "%%%s%%"' % (cls.Table, user_id, search_key_word)
         results = Database.execute(sql)
         return results
+
+    @classmethod
+    def latest_blogs(cls):
+        sql = 'select user_blog_id, title, content, comment, love, create_time, user_id from %s order by create_time desc limit 10' % (cls.Table)
+        results = Database.execute(sql)
+        return results

@@ -11,6 +11,7 @@ import hint from '../common/message.js';
 import {api} from '../common/requestClient.js';
 import {account} from '../common/account.js';
 import mrouter from '../common/mrouter.js';
+import {log} from '../common/logging.js';
 const config = require('../common/config.js');
 const styles = theme => ({
   main: {

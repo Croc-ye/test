@@ -119,7 +119,10 @@ class AppTopBar extends React.Component {
 
           <ListItem button onClick={(e)=>{mrouter.goToLoginPage()}}>
             <ListItemIcon><DeleteIcon /></ListItemIcon>
-            <ListItemText primary="logout" />
+            { account.hasLogin() ?
+              <ListItemText primary="logout" /> : 
+              <ListItemText primary="login" />
+            }
           </ListItem>
 
         </List>

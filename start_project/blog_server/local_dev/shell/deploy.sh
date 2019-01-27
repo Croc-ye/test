@@ -19,9 +19,6 @@ function deploy() {
 }
 
 function restore() {
-  second=10
-  echo "sleep ${second} seconds to wait db start"
-  sleep ${second}
   mysql -h${DB_HOST} -uroot -p${MYSQL_ROOT_PASSWORD} ${MYSQL_DATABASE} < ./db/sql/latest_dump.sql
 }
 

@@ -87,3 +87,8 @@ def search_blog(username, search_key_word):
         return jsonify([blog.to_json() for blog in blogs])
     else:
         raise ArgsError('no search found')
+
+@blog_api.route('/latest_blogs/', methods=['GET'])
+def latest_blogs():
+    blogs = Blog.latest_blogs()
+    return jsonify([blog.to_json() for blog in blogs])

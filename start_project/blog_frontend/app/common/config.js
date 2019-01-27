@@ -16,6 +16,7 @@ module.exports = {
   userAvatar: '/user/update_user_avatar/',
   getComment: '/blog/get_comment/',
   blogSearch: '/blog/search/',
+  latestBlog: '/blog/latest_blogs/',
 
   limitUserNameLength: 15,
   limitUserPasswordLength: 15,

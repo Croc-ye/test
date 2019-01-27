@@ -3,18 +3,21 @@
 
 from lib.logger.logger import log
 from lib.errors.expection import ArgsError, UnknownError
+from models.user import User
 from .storage.cache.redis import Redis
 from .storage.database.blog_dao import BlogDAO
+
 import json
 
 class Blog:
-    def __init__(self, user_blog_id, title=None, content=None, comment=None, love=None, create_time=None):
+    def __init__(self, user_blog_id, title=None, content=None, comment=None, love=None, create_time=None, user=None):
         self.user_blog_id = user_blog_id
         self.title = title
         self.content = content
         self.comment = comment
         self.love = love
         self.create_time = str(create_time)
+        self.user = user
 
     @classmethod
     def write_blog(cls, user_id, title, content) -> 'Blog':
@@ -69,6 +72,14 @@ class Blog:
             final_result.append(cls(user_blog_id=result[0], title=result[1], content=result[2], comment=result[3], love=result[4]))
         return final_result
 
+    @classmethod
+    def latest_blogs(cls):
+        results = BlogDAO.latest_blogs()
+        final_result = []
+        for result in results:
+            final_result.append(cls(user_blog_id=result[0], title=result[1], content=result[2], comment=result[3], love=result[4], create_time=result[5], user=User.by_id(result[6])))
+        return final_result
+
     def to_json(self):
         return {
             "user_blog_id": self.user_blog_id,
@@ -77,4 +88,5 @@ class Blog:
             "comment": self.comment,
             "love": self.love,
             "create_time": self.create_time,
+            "user": self.user.to_json() if self.user else None,
         }

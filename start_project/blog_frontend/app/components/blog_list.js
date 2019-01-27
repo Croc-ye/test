@@ -62,7 +62,6 @@ class BlogList extends React.Component {
     super(props);
     this.state = {
       blogs: [
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
       ],
       loveOrNot: ["", "red"],
       loveId: 0,
@@ -76,6 +75,17 @@ class BlogList extends React.Component {
   }
 
   componentWillMount() {
+    api.request(config.latestBlog).then(
+      (success) => {
+        console.log(success);
+        this.setState({
+          blogs: success,
+        });
+      },
+      (error) => {
+        log.error(error);
+      }
+    );
   }
 
   componentWillUnmount() {
@@ -90,10 +100,10 @@ class BlogList extends React.Component {
           <CardHeader
             className={classes.CardHeader}
             avatar={
-              <Avatar src={blog.avatar}/>
+              <Avatar src={blog.user.avatar}> {blog.user.username[0]} </Avatar>
             }
-            title="Shrimp and Chorizo Paella"
-            subheader="September 14, 2016"
+            title={blog.title}
+            subheader={blog.create_time}
           />
 
           <CardMedia
@@ -104,7 +114,7 @@ class BlogList extends React.Component {
 
           <CardContent className={classes.CardContent}>
             <Typography component="p" style={{'whiteSpace':'pre'}}>
-              {"这是一篇博客 \nasdfsdwf"}
+              {blog.content}
             </Typography>
           </CardContent>
 
