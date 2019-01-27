@@ -22,7 +22,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Icon from '@material-ui/core/Icon';
+import AddIcon from '@material-ui/icons/Add';
 import Tooltip from '@material-ui/core/Tooltip';
 import mrouter from '../common/mrouter.js';
 import hint from '../common/message.js';
@@ -110,7 +110,7 @@ class AppTopBar extends React.Component {
           <Divider />
 
           <ListItem button onClick={(e)=>{mrouter.goToWriteBlogPage()}}>
-            <ListItemIcon><Icon color="action" /></ListItemIcon>
+            <ListItemIcon><AddIcon /></ListItemIcon>
             <ListItemText primary="write blog" />
           </ListItem>
 
