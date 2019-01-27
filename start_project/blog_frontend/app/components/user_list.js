@@ -40,9 +40,6 @@ class UserList extends React.Component {
     super(props);
     this.state = {
       users:[
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"weimingliu", avatar:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
       ]
     }
   }
