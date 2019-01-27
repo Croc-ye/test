@@ -1,5 +1,5 @@
 #!/bin/bash
-container_name=(blog_db blog_redis blog_server)
+container_name=(blog_db blog_redis)
 
 function do_command() {
   echo $1
@@ -17,6 +17,7 @@ function init() {
   echo "sleep ${second}, waiting db start"
   sleep ${second}
   do_command "docker-compose up -d --build db_restore"
+  do_command "docker-compose up -d --build blog_server"
 }
 
 function clean() {
