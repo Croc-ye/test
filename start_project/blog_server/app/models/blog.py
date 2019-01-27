@@ -8,12 +8,13 @@ from .storage.database.blog_dao import BlogDAO
 import json
 
 class Blog:
-    def __init__(self, user_blog_id, title=None, content=None, comment=None, love=None):
+    def __init__(self, user_blog_id, title=None, content=None, comment=None, love=None, create_time=None):
         self.user_blog_id = user_blog_id
         self.title = title
         self.content = content
         self.comment = comment
         self.love = love
+        self.create_time = str(create_time)
 
     @classmethod
     def write_blog(cls, user_id, title, content) -> 'Blog':
@@ -23,7 +24,7 @@ class Blog:
     @classmethod
     def get_blog(cls, username, user_blog_id) -> 'Blog':
         result = BlogDAO.get_blog(username, user_blog_id)
-        return cls("", result[0], result[1], result[2], result[3])
+        return cls("", result[0], result[1], result[2], result[3], result[4])
 
     @classmethod
     def get_all_blog(cls, username) -> 'Blog truple':
@@ -35,7 +36,8 @@ class Blog:
                 title = result[1],
                 content = result[2],
                 comment = result[3],
-                love = result[4]
+                love = result[4],
+                create_time = result[5],
             ))
         return final_result
 
@@ -74,4 +76,5 @@ class Blog:
             "content": json.loads(self.content) if self.content else self.content,
             "comment": self.comment,
             "love": self.love,
+            "create_time": self.create_time,
         }

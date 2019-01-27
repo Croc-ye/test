@@ -48,7 +48,7 @@ const styles = theme => ({
   one_blog: {
     'width': '100%',
     'height': '50%',
-    'margin-bottom': theme.spacing.unit * 5,
+    'margin-bottom': theme.spacing.unit * 3,
   },
   user: {
     'display': 'flex',
@@ -66,8 +66,8 @@ const styles = theme => ({
     'font-size': theme.spacing.unit * 2,
   },
   blog_list_other: {
-    'font-size': theme.spacing.unit * 1,
-    'margin-top': '2%',
+    'font-size': theme.spacing.unit * 2,
+    'margin-top': theme.spacing.unit * 2,
   },
   userinfo: {
     'display': 'flex',
@@ -184,15 +184,12 @@ class Profile extends React.Component {
                 onMouseOut={(e)=>this.onOut(`blog_title_${idx}`)}
                 onClick={(e)=>{this.handleOnBlogClick(blog.user_blog_id)}}
               > 
-                {blog.title} 
+                {blog.title + `    (${blog.create_time}) `}
               </font>
             </div>
             <hr />
             <font className={classes.blog_list_content}> {blog.content}</font>
 
-            <div>
-              <font className={classes.blog_list_other}> other </font>
-            </div>
           </div>
         </div>
       ))

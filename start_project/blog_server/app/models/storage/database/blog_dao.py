@@ -22,7 +22,7 @@ class BlogDAO:
     @classmethod
     def get_blog(cls, username, user_blog_id) -> 'truple':
         user_id = UserDAO.get_user_id_by_username(username)
-        sql = 'select title, content, comment, love from %s where user_id=%d and user_blog_id=%d' % (cls.Table, user_id, user_blog_id)
+        sql = 'select title, content, comment, love, create_time from %s where user_id=%d and user_blog_id=%d' % (cls.Table, user_id, user_blog_id)
         result = Database.execute(sql)
         if result is not None and len(result) == 1:
             return result[0]
@@ -32,7 +32,7 @@ class BlogDAO:
     @classmethod
     def get_all_blog(cls, username) -> 'truple':
         user_id = UserDAO.get_user_id_by_username(username)
-        sql = 'select user_blog_id, title, content, comment, love from %s where user_id=%d order by user_blog_id desc' % (cls.Table, user_id)
+        sql = 'select user_blog_id, title, content, comment, love, create_time from %s where user_id=%d order by user_blog_id desc' % (cls.Table, user_id)
         results = Database.execute(sql)
         return results
 
