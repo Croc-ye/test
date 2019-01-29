@@ -55,7 +55,7 @@ const styles = theme => ({
     'justify-content': 'flex-end',
     'margin': theme.spacing.unit,
     'margin-left': '86%',
-    'margin-top': '-34%',
+    'margin-top': '-22%',
   },
 });
 

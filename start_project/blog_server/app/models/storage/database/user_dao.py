@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from .db_base import Database
-from lib.logger.logger import log
+from lib.logger import log
 from lib.errors.expection import ArgsError, DatabaseError
 
 class UserDAO:
@@ -20,10 +20,10 @@ class UserDAO:
     @classmethod
     def load(cls, username, password) -> 'User':
         sql = 'select id, username, avatar, password from %s where username="%s"' % (cls.Table, username)
-        result = Database.execute(sql)
-        if password != result[0][3]:
+        results = Database.execute(sql)
+        if password != results[0][3]:
             raise ArgsError("unmatch password")
-        return cls.create_user_obj_by_result(result)
+        return cls.create_dict_by_result(results[0])
 
     @classmethod
     def create(cls, username, password) -> 'User':
@@ -36,17 +36,22 @@ class UserDAO:
         return result is not None and len(result) == 1
     
     @classmethod
-    def create_user_obj_by_result(cls, result) -> 'User':
-        if result is not None and len(result) == 1:
-            return result[0]
+    def create_dict_by_result(cls, result) -> 'User':
+        if result:
+            return {
+                "id": result[0],
+                "username": result[1],
+                "avatar": result[2],
+                "password": result[3],
+            }
         else:
             raise ArgsError("No such user")
 
     @classmethod
     def by_id(cls, user_id) -> 'User':
-        sql = 'select id, username, avatar from %s where id="%s"' % (cls.Table, user_id)
-        result = Database.execute(sql)
-        return cls.create_user_obj_by_result(result)
+        sql = 'select id, username, avatar, password from %s where id="%s"' % (cls.Table, user_id)
+        results = Database.execute(sql)
+        return cls.create_dict_by_result(results[0])
     
     @classmethod
     def get_user_id_by_username(cls, username):
@@ -59,9 +64,9 @@ class UserDAO:
 
     @classmethod
     def by_username(cls, username) -> 'User':
-        sql = 'select id, username, avatar from %s where username="%s"' % (cls.Table, username)
-        result = Database.execute(sql)
-        return cls.create_user_obj_by_result(result)
+        sql = 'select id, username, avatar, password from %s where username="%s"' % (cls.Table, username)
+        results = Database.execute(sql)
+        return cls.create_dict_by_result(results[0])
 
     @classmethod
     def delete_by_user_id(cls, user_id) -> 'boolean':
@@ -91,6 +96,12 @@ class UserDAO:
     @classmethod
     def friend_user(cls, user_id):
         sql = 'select id, username, avatar from %s' % (cls.Table)
-        result = Database.execute(sql)
-        return result
-
+        results = Database.execute(sql)
+        final_result = []
+        for result in results:
+            final_result.append({
+                "id": result[0],
+                "username": result[1],
+                "avatar": result[2],
+            })
+        return final_result

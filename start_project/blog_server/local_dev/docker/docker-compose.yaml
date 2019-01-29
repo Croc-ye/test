@@ -33,7 +33,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
-    command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+    command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--default-time-zone=+8:00']
     container_name: "blog_db"
 
   db_restore:
@@ -58,5 +58,4 @@ services:
       - $PWD/../volumes/redis_data:/data
     ports:
       - ${REDIS_PROT_MAPPING}
-    restart: always
     container_name: "blog_redis"

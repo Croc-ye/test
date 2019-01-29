@@ -68,8 +68,8 @@ class Login extends React.Component {
     super(props);
     this.buttonKey = 13;
     
-    if (!account.hasLogin()) {
-      account.tryLogin(mrouter.goToFirstPage, null);
+    if (account.hasLogin()) {
+      mrouter.goToFirstPage();
     }
   }
 

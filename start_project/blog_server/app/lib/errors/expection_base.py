@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from lib.logger.logger import log
+from lib.logger import log
 
 class BlogServerBaseExpection(Exception):
 

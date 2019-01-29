@@ -47,6 +47,9 @@ const styles = theme => ({
   CardHeader: {
     'width': '100%',
     'height': '20%',
+    'text-overflow':'ellipsis',
+    'overflow':'hidden',
+    'white-space':'nowrap',
   },
   media: {
     'width': '100%',
@@ -55,6 +58,10 @@ const styles = theme => ({
   CardContent: {
     'width': '100%',
     'height': '77%',
+    'white-space':'pre-line',
+    "overflow": "hidden", 
+    "textOverflow": "ellipsis",
+    'word-break':'break-all',
   },
 });
 
@@ -119,8 +126,8 @@ class BlogList extends React.Component {
           />
 
           <CardContent className={classes.CardContent}>
-            <Typography component="p" style={{'whiteSpace':'pre'}}>
-              {blog.content}
+            <Typography component="p" style={{'whiteSpace':'pre', "overflow": "hidden", "textOverflow": "ellipsis"}}>
+              {blog.content.length > 200 ? blog.content.substring(0, 200) + " ..." : blog.content}
             </Typography>
           </CardContent>
 

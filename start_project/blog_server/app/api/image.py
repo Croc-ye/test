@@ -6,7 +6,7 @@ class Image:
         pass
 
     @classmethod
-    def decode_imgfile_to_base64(self, img):
+    def decode_imgfile_to_base64(cls, img):
         img_type = imghdr.what(img)
         data = img.read()
         result = "data:image/{};base64,{}".format(str(img_type), str(base64.b64encode(data), 'utf-8'))

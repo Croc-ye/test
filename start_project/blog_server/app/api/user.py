@@ -3,7 +3,7 @@ from flask import session, g, jsonify, make_response, request
 from .decorator_tool import parse_user, parse_args
 from lib.errors.expection import UnknownError, ArgsError
 from models.user import User
-from lib.logger.logger import log
+from lib.logger import log
 from api.image import Image
 
 user_api = flask.Blueprint('user', __name__, url_prefix='/user')
@@ -18,7 +18,7 @@ def info(username):
 @parse_args("password", str)
 def login(username, password):
     u = User.load_or_create(username, password)
-    session['user_id'] = u.user_id
+    session['user_id'] = u.id
     return jsonify(u.to_json())
 
 @user_api.route('/logout/', methods=['GET'])
@@ -32,7 +32,7 @@ def logout():
 @user_api.route('/delete/', methods=['GET'])
 @parse_user()
 def delele_by_id():
-    User.delete_by_user_id(g.current_user.user_id)
+    User.delete_by_user_id(g.current_user.id)
     return jsonify({
         "success": "user alerady delete",
     });

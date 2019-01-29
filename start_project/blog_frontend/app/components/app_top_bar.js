@@ -30,6 +30,7 @@ import hint from '../common/message.js';
 import {account} from '../common/account.js';
 import { api } from '../common/requestClient.js';
 import { log } from '../common/logging.js';
+import SvgIcon from '@material-ui/core/SvgIcon';
 const config = require('../common/config.js');
 const color = require('../common/config.js');
 
@@ -110,6 +111,17 @@ class AppTopBar extends React.Component {
 
           <Divider />
 
+          <ListItem button onClick={(e)=>{mrouter.goToFirstPage()}}>
+            <ListItemIcon>
+              <SvgIcon>
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+              </SvgIcon>
+            </ListItemIcon>
+            <ListItemText primary="index page" />
+          </ListItem>
+
+          <Divider />
+
           <ListItem button onClick={(e)=>{mrouter.goToWriteBlogPage()}}>
             <ListItemIcon><AddIcon /></ListItemIcon>
             <ListItemText primary="write blog" />
@@ -129,6 +141,13 @@ class AppTopBar extends React.Component {
       </div>
     );
     return profileList;
+  }
+
+  componentWillMount() {
+  }
+
+  componentWillUnmount() {
+
   }
 
   openRightProfile() {
@@ -160,6 +179,12 @@ class AppTopBar extends React.Component {
       <div className={classes.Search}>
         <SearchIcon className={classes.searchIcon}/>
         <Input
+          id="input_search"
+          onKeyDown={(e)=>{
+            if (this.props.onBarKeyDown) {
+              this.props.onBarKeyDown(e)}
+            }
+          }
           className={classes.searchInput}
           placeholder="search...."
         />
@@ -206,7 +231,9 @@ class AppTopBar extends React.Component {
       <main className={classes.main}>
         <AppBar className={classes.appBar} position="static"> 
           <Title title={"Material-ui"} />
-          <Search />
+          {
+            this.props.need && <Search />
+          }
           <LogoUser />
           <RightProfile />
         </AppBar>

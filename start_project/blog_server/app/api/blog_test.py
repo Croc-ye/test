@@ -24,7 +24,7 @@ class BlogTest(ApiTest, DatabaseTest):
         # setUp mock blog
         with self.client.session_transaction() as session:
             user = User.load_or_create("test_username_1", "test_password_1")
-            session['user_id'] = user.user_id
+            session['user_id'] = user.id
         response = self.client.post(
                     '/blog/write_blog/',
                     content_type='multipart/form-data',
@@ -55,7 +55,7 @@ class BlogTest(ApiTest, DatabaseTest):
         """ TEST /blog/write_comment/ """
         with self.client.session_transaction() as session:
             user = User.load_or_create("test_username_1", "test_password_1")
-            session['user_id'] = user.user_id
+            session['user_id'] = user.id
 
         response = self.client.post(
             '/blog/write_comment/',

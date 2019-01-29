@@ -30,6 +30,10 @@ const styles = theme => ({
   },
   username: {
     'font-size': theme.spacing.unit * 2,
+    'width': '80px',
+    'text-overflow':'ellipsis',
+    'overflow':'hidden',
+    'white-space':'nowrap',
   },
   user_list: {
   }

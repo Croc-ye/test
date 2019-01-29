@@ -37,11 +37,19 @@ class AppRouter extends React.Component {
   }
 };
 
-function begin() {
+function setupRouter() {
   ReactDOM.render(
     <AppRouter />,
     document.getElementById('root'),
   );
+}
+
+function begin() {
+  if (!account.hasLogin()) {
+    account.tryLogin(setupRouter, setupRouter);
+  } else {
+    setupRouter();
+  }
 }
 
 begin();

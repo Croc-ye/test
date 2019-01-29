@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from lib.logger.logger import log
+from lib.logger import log
 from lib.errors.expection import ArgsError, UnknownError
 from models.user import User
 from .storage.cache.redis import Redis
@@ -20,6 +20,18 @@ class Blog:
         self.user = user
 
     @classmethod
+    def converDdataToBlogObj(cls, result):
+        return cls(
+            user_blog_id=result.get("user_blog_id"),
+            title=result.get("title"),
+            content=result.get("content"),
+            comment=result.get("comment"),
+            love=result.get("love"),
+            create_time=result.get("create_time"),
+            user=User.by_id(result.get("user_id")) if result.get("user_id") else None,
+        )
+
+    @classmethod
     def write_blog(cls, user_id, title, content) -> 'Blog':
         user_blog_id = BlogDAO.write_blog(user_id, title, content)
         return cls(user_blog_id)
@@ -27,21 +39,14 @@ class Blog:
     @classmethod
     def get_blog(cls, username, user_blog_id) -> 'Blog':
         result = BlogDAO.get_blog(username, user_blog_id)
-        return cls("", result[0], result[1], result[2], result[3], result[4])
+        return cls.converDdataToBlogObj(result)
 
     @classmethod
     def get_all_blog(cls, username) -> 'Blog truple':
         results = BlogDAO.get_all_blog(username)
         final_result = []
         for result in results:
-            final_result.append(cls(
-                user_blog_id = result[0],
-                title = result[1],
-                content = result[2],
-                comment = result[3],
-                love = result[4],
-                create_time = result[5],
-            ))
+            final_result.append(cls.converDdataToBlogObj(result))
         return final_result
 
     @classmethod
@@ -54,6 +59,7 @@ class Blog:
 
     @classmethod
     def add_comment_for_blog(cls, username, user_blog_id, comment_id) -> 'bool':
+        Redis.insert_latest_comment(username, comment_id, user_blog_id)
         return BlogDAO.add_comment_for_blog(username, user_blog_id, comment_id)
 
     @classmethod
@@ -69,7 +75,7 @@ class Blog:
         results = BlogDAO.search_blog(username, search_key_word)
         final_result = []
         for result in results:
-            final_result.append(cls(user_blog_id=result[0], title=result[1], content=result[2], comment=result[3], love=result[4]))
+            final_result.append(cls.converDdataToBlogObj(result))
         return final_result
 
     @classmethod
@@ -77,14 +83,14 @@ class Blog:
         results = BlogDAO.latest_blogs()
         final_result = []
         for result in results:
-            final_result.append(cls(user_blog_id=result[0], title=result[1], content=result[2], comment=result[3], love=result[4], create_time=result[5], user=User.by_id(result[6])))
+            final_result.append(cls.converDdataToBlogObj(result))
         return final_result
 
     def to_json(self):
         return {
             "user_blog_id": self.user_blog_id,
-            "title": json.loads(self.title) if self.title else self.title,
-            "content": json.loads(self.content) if self.content else self.content,
+            "title": self.title,
+            "content": self.content,
             "comment": self.comment,
             "love": self.love,
             "create_time": self.create_time,

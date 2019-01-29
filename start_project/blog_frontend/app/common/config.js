@@ -17,6 +17,7 @@ module.exports = {
   getComment: '/blog/get_comment/',
   blogSearch: '/blog/search/',
   latestBlog: '/blog/latest_blogs/',
+  latestComment: '/blog/latest_comment/',
 
   limitUserNameLength: 15,
   limitUserPasswordLength: 15,

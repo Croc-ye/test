@@ -3,8 +3,9 @@
 
 from .db_base import Database
 from .user_dao import UserDAO
-from lib.logger.logger import log
+from lib.logger import log
 from lib.errors.expection import ArgsError, DatabaseError
+import json
 
 class CommentDAO:
     Table = 'comment'
@@ -17,17 +18,21 @@ class CommentDAO:
         return last_insert_id
 
     @classmethod
-    def by_id(cls, comment_id):
-        sql = 'select user_id, comment from %s where id=%d' % (cls.Table, int(comment_id))
+    def select_comment_by_id(cls, comment_id):
+        sql = 'select id, user_id, comment from %s where id=%d' % (cls.Table, int(comment_id))
         result = Database.execute(sql)
         if result is ():
             raise ArgsError('no such comment')
-        return result[0]
+        return {
+            "id": result[0][0],
+            "user_id": result[0][1],
+            "comment": json.loads(result[0][2]),
+        }
 
     @classmethod
-    def get_comment(cls, comment_list: str):
+    def get_one_blog_comment(cls, comment_list: str):
         result = []
         for comment_id in comment_list:
-            comment = CommentDAO.by_id(comment_id)
+            comment = CommentDAO.select_comment_by_id(comment_id)
             result.append(comment)
         return result

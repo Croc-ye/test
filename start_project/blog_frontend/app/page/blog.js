@@ -36,9 +36,11 @@ const styles = theme => ({
     "whiteSpace": "nowrap",
   },
   blog_content: {
+    'width': '20%',
     'margin-top': theme.spacing.unit * 3,
     'font-size': theme.spacing.unit * 2,
     "whiteSpace": "pre",
+    'word-break':'break-all',
   },
   comment: {
     'display': 'flex',
@@ -193,7 +195,7 @@ class BlogPage extends React.Component {
           <hr style={{"width":'100%'}}/>
 
           <div className={classes.blog_content}>
-            {this.state.blog.content}
+            <font>{this.state.blog.content} </font>
           </div>
 
           <div style={{"marginTop":100}}>

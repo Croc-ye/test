@@ -3,7 +3,6 @@
 
 from flask import g, session, make_response, request
 import functools
-from lib.logger.logger import log
 from lib.errors.expection import ArgsError
 from models.user import User
 

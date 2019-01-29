@@ -2,11 +2,16 @@
 # -*- coding: utf-8 -*-
 
 from config import config
-from .util import format_user_blog_id_key, format_user_love_value_key
+from .util import (
+    format_user_blog_id_key, 
+    format_user_love_value_key,
+    format_latest_comment_key,
+)
 from lib.errors.expection import CacheError
 import redis, time
 from lib.errors.expection import CacheError
-from lib.logger.logger import log
+from lib.logger import log
+import json
 
 def connect_redis():
     connect_time = 5
@@ -24,6 +29,8 @@ def connect_redis():
 pool = connect_redis()
 
 class Redis:
+    MAX_COMMENT_LENGTH = 10
+
     def __init__(self):
         pass
 
@@ -57,3 +64,31 @@ class Redis:
         else:
             conn.set(key, "True")
             return 1
+
+    @classmethod
+    def get_latest_comment(cls, username):
+        key = format_latest_comment_key(username)
+        conn = cls.get_redis_conn()
+        result = conn.get(key)
+        if result:
+            return json.loads(result.decode())
+        else:
+            return []
+
+    @classmethod
+    def insert_latest_comment(cls, username: str, comment_id: int, user_blog_id: int):
+        key = format_latest_comment_key(username)
+        conn = cls.get_redis_conn()
+        comment_obj = {
+            'comment_id': comment_id,
+            'user_blog_id': user_blog_id,
+        }
+        redis_result = conn.get(key)
+        if redis_result:
+            redis_result = json.loads(redis_result.decode())
+            if (len(redis_result) > cls.MAX_COMMENT_LENGTH):
+                redis_result.pop(0)
+            redis_result.append(comment_obj)
+        else:
+            redis_result = [comment_obj]
+        conn.set(key, json.dumps(redis_result))

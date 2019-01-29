@@ -4,7 +4,7 @@
 import threading
 import pymysql, time
 from config import config
-from lib.logger.logger import log
+from lib.logger import log
 from lib.errors.expection import DatabaseError
 
 def connect_database():

@@ -22,7 +22,7 @@ class UserTest(ApiTest, DatabaseTest):
     def setUp(self):
         super().setUp()
         u = User.load_or_create(self.mock_user.get("username"), self.mock_user.get("password"))
-        self.user_id = u.user_id
+        self.user_id = u.id
 
     def tearDown(self):
         super().tearDown()
@@ -51,7 +51,7 @@ class UserTest(ApiTest, DatabaseTest):
         """ Test /user/delete/ """
         with self.client.session_transaction() as session:
             user = User.load_or_create("test_username_1", "test_password_1")
-            session['user_id'] = user.user_id
+            session['user_id'] = user.id
         response = self.client.get('/user/delete/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.get_json().get("success"), "user alerady delete")

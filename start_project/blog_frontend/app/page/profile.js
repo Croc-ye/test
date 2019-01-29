@@ -9,6 +9,7 @@ import AppTopBar from '../components/app_top_bar.js';
 import {account} from '../common/account.js';
 import {api} from '../common/requestClient.js';
 import hint from '../common/message.js';
+import {log} from '../common/logging.js';
 import mrouter from '../common/mrouter.js';
 const config = require('../common/config.js');
 
@@ -115,17 +116,11 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      needFetchUserInfo: true,
       username: null,
       user: {
         username: this.props.match.params.username,
       },
       comment: [
-        {username:"weimingliu", comment:"http://119.23.231.141:8082/mongo_img/cat.jpg"},
-        {username:"ruiyangtang", comment:"数量的开发技术的路口及分类考试的积分"},
-        {username:"forever", comment:"hello"},
-        {username:"go", comment:"hello"},
-        {username:"python", comment:"hello"},
       ],
       stack: null,
       blogs: [],
@@ -153,7 +148,16 @@ class Profile extends React.Component {
         hint.showDialog("Server:", "please login", mrouter.goToLoginPage, mrouter.goToLoginPage);
       }
     );
-
+    api.request(config.latestComment, {username:this.state.user.username}).then(
+      (success) => {
+        this.setState({
+          comment: success,
+        });
+      },
+      (error) => {
+        log.error(error);
+      }
+    );
   }
 
   componentWillUnmount() {
@@ -188,7 +192,9 @@ class Profile extends React.Component {
               </font>
             </div>
             <hr />
-            <font className={classes.blog_list_content}> {blog.content}</font>
+            <font className={classes.blog_list_content}> 
+              {blog.content.length > 200 ? blog.content.substring(0, 200) + " ..." : blog.content}
+            </font>
 
           </div>
         </div>
@@ -197,13 +203,83 @@ class Profile extends React.Component {
     return result;
   }
 
+  handleOnAvatarClick(e) {
+    if (!account.isOwner(this.state.user.username)) {
+      return;
+    }
+    const that = this;
+    const file = document.getElementById('input_avatar');
+    file.click(); // 调取系统选择图片的弹框
+    
+    // 监听input的file变化值
+    file.onchange = function (event) {
+        let file = event.target.files[0];
+        if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif') {
+          alert('不是有效的图片文件!');
+          return;
+        }
+        upload(file);
+    }
+
+    function upload(file) {
+      let xhr = new XMLHttpRequest();
+      let formData = new FormData();
+      formData.set('filename', file);
+      xhr.withCredentials = true;
+      xhr.open('post', config.apiHostPrefix + config.userAvatar, true);
+      xhr.send(formData);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            const user = JSON.parse(xhr.responseText);
+            that.setState({
+              user: user,
+            });
+          } else {
+            log.error(JSON.parse(xhr.responseText));
+            hint.showDialog("Error", "sorry, internal error, change fail", null, null);
+          }
+        }
+      }
+    }
+  }
+
+  searchPerson(e) {
+    if (e.keyCode === 13) {
+      const value = document.getElementById("input_search").value;
+      api.request(config.blogSearch, {
+        username: this.state.user.username,
+        search_key_word: value,
+      }).then(
+        (success) => {
+          this.setState({
+            blogs: success,
+          });
+        },
+        (error) => {
+          hint.showDialog("nothing", "sorry, nothing found", null, null);
+          log.error(error);
+        }
+      );
+    }
+  }
+
   showProfile() {
     const {classes} = this.props;
 
     const UserInfo = () => (
       <div className={classes.userinfo}>
-        <Avatar src={this.state.user.avatar} className={classes.avatar}> {this.state.user.username[0]} </Avatar>
+        <Avatar 
+          src={this.state.user.avatar} 
+          className={classes.avatar}
+          onClick={(e)=>{this.handleOnAvatarClick(e)}}
+        >
+          {this.state.user.username[0]} 
+        </Avatar>
         <font className={classes.username}>  {this.state.user.username} </font> 
+
+        <input id="input_avatar" hidden type="file" name="file" accept="image/png,image.jpg" />
+
       </div>
     );
 
@@ -215,7 +291,9 @@ class Profile extends React.Component {
 
     const Comment = () => (
       this.state.comment.map((value, idx) => (
-        <div className={classes.comment_item} key={idx}>
+        <div className={classes.comment_item} key={idx}
+          onClick={(e)=>{mrouter.goToBlogPage(this.state.user.username, value.user_blog_id)}}
+        >
           <font 
             id={`comment_${idx}`}
             className={classes.comment_item_username}
@@ -273,7 +351,7 @@ class Profile extends React.Component {
     const {classes} = this.props;
     return (
       <main className={classes.main}>
-        <AppTopBar />
+        <AppTopBar need={true} onBarKeyDown={(e)=>{this.searchPerson(e)}}/>
         {this.showProfile()}
       </main>
     );
