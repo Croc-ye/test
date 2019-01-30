@@ -1,0 +1,2 @@
+CONTAINER_NAME=blog_redis
+docker exec -it ${CONTAINER_NAME} redis-cli
