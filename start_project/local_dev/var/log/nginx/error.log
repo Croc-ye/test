@@ -1,0 +1,360 @@
+2019/01/09 01:57:44 [emerg] 1#1: unknown directive "host_access_log" in /etc/nginx/conf.d/default.conf:4
+2019/01/09 02:01:47 [emerg] 1#1: unknown directive "error.log" in /etc/nginx/conf.d/default.conf:4
+2019/01/09 02:04:29 [emerg] 1#1: unknown directive "error.log" in /etc/nginx/conf.d/default.conf:4
+2019/01/09 02:07:48 [error] 8#8: *4 open() "/usr/share/nginx/html/index.html/sadfsdf" failed (20: Not a directory), client: 172.24.0.1, server: localhost, request: "GET /index.html/sadfsdf HTTP/1.1", host: "localhost:8081"
+2019/01/09 02:23:12 [error] 8#8: *1 open() "/usr/share/nginx/html/index.html/sadfsdf" failed (20: Not a directory), client: 172.24.0.1, server: localhost, request: "GET /index.html/sadfsdf HTTP/1.1", host: "localhost:8081"
+2019/01/09 02:23:35 [error] 8#8: *3 "/usr/share/nginx/html/index.html/index.html" is not found (20: Not a directory), client: 172.24.0.1, server: localhost, request: "GET /index.html/ HTTP/1.1", host: "localhost:8081"
+2019/01/09 02:28:29 [error] 8#8: *1 open() "/usr/share/nginx/html/index.htmls" failed (2: No such file or directory), client: 172.24.0.1, server: localhost, request: "GET /index.htmls HTTP/1.1", host: "localhost:8081"
+2019/01/09 02:28:39 [error] 8#8: *1 open() "/usr/share/nginx/html/index.html/sdf" failed (20: Not a directory), client: 172.24.0.1, server: localhost, request: "GET /index.html/sdf HTTP/1.1", host: "localhost:8081"
+2019/01/09 02:33:54 [error] 9#9: *3 "/usr/share/nginx/html/index.html/index.html" is not found (20: Not a directory), client: 172.24.0.1, server: localhost, request: "GET /index.html/ HTTP/1.1", host: "localhost:8081"
+2019/01/09 02:34:11 [error] 9#9: *4 "/usr/share/nginx/html/index.html/index.html" is not found (20: Not a directory), client: 172.24.0.1, server: localhost, request: "GET /index.html/ HTTP/1.1", host: "localhost:8081"
+2019/01/09 02:34:15 [error] 9#9: *5 "/usr/share/nginx/html/index.html/index.html" is not found (20: Not a directory), client: 172.24.0.1, server: localhost, request: "GET /index.html/ HTTP/1.1", host: "localhost:8081"
+2019/01/09 02:46:27 [error] 8#8: *1 open() "/usr/share/nginx/html/sdf/sdf" failed (2: No such file or directory), client: 172.24.0.1, server: localhost, request: "GET /sdf/sdf HTTP/1.1", host: "localhost:8081"
+2019/01/09 02:50:27 [error] 8#8: *3 open() "/usr/share/nginx/html/index" failed (2: No such file or directory), client: 172.24.0.1, server: localhost, request: "GET /index HTTP/1.1", host: "localhost:8081"
+2019/01/09 02:56:55 [error] 8#8: *2 open() "/usr/share/nginx/html/index" failed (2: No such file or directory), client: 172.24.0.1, server: localhost, request: "GET /index HTTP/1.1", host: "localhost:8081"
+2019/01/09 02:59:37 [error] 8#8: *2 open() "/etc/nginx/htmlerror_page" failed (2: No such file or directory), client: 172.24.0.1, server: localhost, request: "GET /index HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:16:54 [info] 9#9: *1 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:17:27 [info] 9#9: *3 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:18:51 [info] 9#9: *5 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:19:52 [info] 9#9: *6 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:21:05 [info] 9#9: *7 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:22:07 [info] 9#9: *9 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:26:21 [info] 9#9: *10 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:26:21 [error] 9#9: *11 open() "/usr/share/nginx/html/index.html/sss" failed (20: Not a directory), client: 172.24.0.1, server: localhost, request: "GET /index.html/sss HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:27:21 [info] 9#9: *12 client timed out (110: Connection timed out) while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:27:57 [info] 9#9: *14 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:31:52 [error] 8#8: *1 open() "/usr/share/nginx/html12/index.html" failed (2: No such file or directory), client: 172.24.0.1, server: localhost, request: "GET /index.html HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:31:56 [error] 8#8: *1 open() "/usr/share/nginx/html12/index.html/ss" failed (2: No such file or directory), client: 172.24.0.1, server: localhost, request: "GET /index.html/ss HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:32:03 [info] 8#8: *2 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:33:30 [error] 8#8: *3 open() "/usr/share/nginx/html12/index.html" failed (2: No such file or directory), client: 172.24.0.1, server: localhost, request: "GET /index/ss HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:34:49 [info] 8#8: *1 client 172.24.0.1 closed keepalive connection
+2019/01/09 03:35:40 [error] 8#8: *2 open() "/usr/share/nginx/html/index.html/aaa/bbb" failed (20: Not a directory), client: 172.24.0.1, server: localhost, request: "GET /index.html/aaa/bbb HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:35:40 [info] 8#8: *2 client 172.24.0.1 closed keepalive connection
+2019/01/09 03:36:59 [info] 8#8: *3 client 172.24.0.1 closed keepalive connection
+2019/01/09 03:37:56 [info] 8#8: *4 client 172.24.0.1 closed keepalive connection
+2019/01/09 03:39:05 [info] 8#8: *6 client timed out (110: Connection timed out) while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:40:28 [info] 8#8: *7 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:41:46 [info] 8#8: *9 client timed out (110: Connection timed out) while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:55:54 [notice] 8#8: *1 "^/(.+?)" matches "/index.js", client: 172.24.0.1, server: localhost, request: "GET /index.js HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/index.html"
+2019/01/09 03:55:54 [notice] 8#8: *1 rewritten redirect: "/index.html", client: 172.24.0.1, server: localhost, request: "GET /index.js HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/index.html"
+2019/01/09 03:56:05 [info] 8#8: *2 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:56:21 [notice] 8#8: *1 "^/(.+?)" matches "/index.js", client: 172.24.0.1, server: localhost, request: "GET /index.js HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/index.html"
+2019/01/09 03:56:21 [notice] 8#8: *1 rewritten redirect: "/index.html", client: 172.24.0.1, server: localhost, request: "GET /index.js HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/index.html"
+2019/01/09 03:56:40 [info] 8#8: *3 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:56:42 [notice] 8#8: *1 "^/(.+?)" matches "/aaa/bbb", client: 172.24.0.1, server: localhost, request: "GET /aaa/bbb HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:56:42 [notice] 8#8: *1 rewritten redirect: "/index.html", client: 172.24.0.1, server: localhost, request: "GET /aaa/bbb HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:57:18 [info] 8#8: *4 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:59:38 [notice] 8#8: *1 "^/(.+?)" does not match "/", client: 172.24.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:59:41 [notice] 8#8: *1 "^/(.+?)" matches "/index.js.map", client: 172.24.0.1, server: localhost, request: "GET /index.js.map HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:59:41 [notice] 8#8: *1 rewritten redirect: "localhost:8081/index.html", client: 172.24.0.1, server: localhost, request: "GET /index.js.map HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:59:44 [notice] 8#8: *1 "^/(.+?)" does not match "/", client: 172.24.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:59:44 [notice] 8#8: *1 "^/(.+?)" matches "/index.js.map", client: 172.24.0.1, server: localhost, request: "GET /index.js.map HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:59:44 [notice] 8#8: *1 rewritten redirect: "localhost:8081/index.html", client: 172.24.0.1, server: localhost, request: "GET /index.js.map HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:59:55 [info] 8#8: *2 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 03:59:57 [notice] 8#8: *1 "^/(.+?)" matches "/aaa", client: 172.24.0.1, server: localhost, request: "GET /aaa HTTP/1.1", host: "localhost:8081"
+2019/01/09 03:59:57 [notice] 8#8: *1 rewritten redirect: "localhost:8081/index.html", client: 172.24.0.1, server: localhost, request: "GET /aaa HTTP/1.1", host: "localhost:8081"
+2019/01/09 04:00:20 [info] 8#8: *3 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 04:00:20 [notice] 8#8: *1 "^/(.+?)" matches "/safjk/sdfskldfjklsdfsdkfj", client: 172.24.0.1, server: localhost, request: "GET /safjk/sdfskldfjklsdfsdkfj HTTP/1.1", host: "localhost:8081"
+2019/01/09 04:00:20 [notice] 8#8: *1 rewritten redirect: "localhost:8081/index.html", client: 172.24.0.1, server: localhost, request: "GET /safjk/sdfskldfjklsdfsdkfj HTTP/1.1", host: "localhost:8081"
+2019/01/09 04:00:39 [info] 8#8: *4 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 04:09:13 [notice] 8#8: *5 "^/(.+?)" matches "/s", client: 172.24.0.1, server: localhost, request: "GET /s HTTP/1.1", host: "localhost:8081"
+2019/01/09 04:09:13 [notice] 8#8: *5 rewritten redirect: "localhost:8081/index.html", client: 172.24.0.1, server: localhost, request: "GET /s HTTP/1.1", host: "localhost:8081"
+2019/01/09 04:09:26 [info] 8#8: *6 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 04:09:54 [notice] 8#8: *5 "^/(.+?)" does not match "/", client: 172.24.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8081"
+2019/01/09 04:09:54 [notice] 8#8: *5 "^/(.+?)" matches "/index.js.map", client: 172.24.0.1, server: localhost, request: "GET /index.js.map HTTP/1.1", host: "localhost:8081"
+2019/01/09 04:09:54 [notice] 8#8: *5 rewritten redirect: "localhost:8081/index.html", client: 172.24.0.1, server: localhost, request: "GET /index.js.map HTTP/1.1", host: "localhost:8081"
+2019/01/09 04:10:14 [info] 8#8: *7 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 04:10:14 [notice] 8#8: *5 "^/(.+?)" matches "/weimingliu", client: 172.24.0.1, server: localhost, request: "GET /weimingliu HTTP/1.1", host: "localhost:8081"
+2019/01/09 04:10:14 [notice] 8#8: *5 rewritten redirect: "localhost:8081/index.html", client: 172.24.0.1, server: localhost, request: "GET /weimingliu HTTP/1.1", host: "localhost:8081"
+2019/01/09 04:10:29 [info] 8#8: *8 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 04:11:03 [notice] 8#8: *5 "^/(.+?)" matches "/weimingliu", client: 172.24.0.1, server: localhost, request: "GET /weimingliu HTTP/1.1", host: "localhost:8081"
+2019/01/09 04:11:03 [notice] 8#8: *5 rewritten redirect: "localhost:8081/index.html", client: 172.24.0.1, server: localhost, request: "GET /weimingliu HTTP/1.1", host: "localhost:8081"
+2019/01/09 04:11:26 [info] 8#8: *9 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 05:30:01 [notice] 8#8: *10 "^/(.+?)" does not match "/", client: 172.24.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8081"
+2019/01/09 05:30:02 [notice] 8#8: *10 "^/(.+?)" matches "/index.js.map", client: 172.24.0.1, server: localhost, request: "GET /index.js.map HTTP/1.1", host: "localhost:8081"
+2019/01/09 05:30:02 [notice] 8#8: *10 rewritten redirect: "localhost:8081/index.html", client: 172.24.0.1, server: localhost, request: "GET /index.js.map HTTP/1.1", host: "localhost:8081"
+2019/01/09 05:30:08 [notice] 8#8: *10 "^/(.+?)" matches "/go-vc", client: 172.24.0.1, server: localhost, request: "GET /go-vc HTTP/1.1", host: "localhost:8081"
+2019/01/09 05:30:08 [notice] 8#8: *10 rewritten redirect: "localhost:8081/index.html", client: 172.24.0.1, server: localhost, request: "GET /go-vc HTTP/1.1", host: "localhost:8081"
+2019/01/09 05:30:19 [info] 8#8: *11 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 05:30:19 [info] 8#8: *10 client 172.24.0.1 closed keepalive connection
+2019/01/09 05:31:42 [info] 8#8: *12 client closed connection while waiting for request, client: 172.24.0.1, server: 0.0.0.0:80
+2019/01/09 07:37:18 [emerg] 8#8: unexpected end of parameter, expecting ";" in command line
+2019/01/09 07:40:36 [emerg] 8#8: unknown directive "deamon" in command line
+2019/01/09 07:54:16 [emerg] 1#1: unknown directive "deamon" in command line
+2019/01/09 07:56:11 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 07:58:52 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 08:00:22 [info] 9#9: *1 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 08:00:23 [error] 9#9: *2 open() "/usr/share/nginx/html/index.html/ss/gg" failed (20: Not a directory), client: 172.26.0.1, server: localhost, request: "GET /index.html/ss/gg HTTP/1.1", host: "localhost:8081"
+2019/01/09 08:01:23 [info] 9#9: *3 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 08:12:52 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 08:19:18 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 08:19:47 [info] 9#9: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 08:28:28 [info] 9#9: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 09:30:38 [info] 9#9: *8 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 09:31:14 [info] 9#9: *9 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 09:36:26 [info] 9#9: *10 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 12:25:29 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/09 12:25:40 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 12:25:49 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/login/sdf"
+2019/01/09 12:25:54 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 12:26:14 [info] 9#9: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 12:26:42 [info] 9#9: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 12:27:04 [info] 9#9: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 12:32:44 [info] 9#9: *7 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 12:49:10 [info] 9#9: *10 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/09 12:52:22 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/10 04:12:29 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/10 04:12:43 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/10 06:02:19 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/10 07:13:09 [info] 9#9: *4 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/10 07:22:12 [info] 9#9: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/14 03:40:11 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/14 03:40:21 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/14 11:13:30 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/14 11:13:44 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/14 11:31:17 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person"
+2019/01/14 11:37:41 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person"
+2019/01/14 11:38:31 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/aaadf"
+2019/01/14 11:57:52 [error] 8#8: *4 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/login/aaadf"
+2019/01/14 11:58:05 [info] 8#8: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/14 12:04:09 [info] 8#8: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/14 12:04:19 [info] 8#8: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/14 13:32:41 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/14 13:32:51 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/14 13:33:25 [info] 8#8: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/14 13:34:01 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/14 13:36:08 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/14 13:37:03 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person"
+2019/01/14 13:37:10 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 03:14:31 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/16 03:15:28 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 03:24:24 [info] 8#8: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 03:43:45 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 03:44:26 [info] 8#8: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 03:56:19 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 03:58:30 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 03:59:25 [info] 8#8: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 04:00:02 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 04:01:31 [info] 8#8: *1 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 04:04:18 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 04:06:22 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 04:09:58 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 04:11:51 [info] 9#9: *1 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 04:15:50 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:17:51 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/16 05:17:52 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/16 05:18:05 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:19:49 [info] 9#9: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:23:04 [info] 9#9: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:23:14 [info] 9#9: *7 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:23:14 [error] 9#9: *5 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/vimiming@gmail.com/"
+2019/01/16 05:24:14 [info] 9#9: *8 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:26:23 [error] 8#8: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/vimiming@gmail.com/"
+2019/01/16 05:26:34 [info] 8#8: *1 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:27:21 [info] 8#8: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:28:35 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:31:21 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:31:39 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:31:39 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/vimiming@gmail.com/"
+2019/01/16 05:31:59 [info] 9#9: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:32:09 [info] 9#9: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:32:23 [info] 9#9: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:32:33 [info] 9#9: *7 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:33:12 [info] 9#9: *8 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:33:23 [info] 9#9: *9 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:35:31 [info] 9#9: *11 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:35:44 [info] 9#9: *12 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:36:17 [info] 9#9: *13 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:36:52 [info] 9#9: *14 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:38:58 [info] 9#9: *16 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:39:53 [info] 9#9: *17 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:47:05 [info] 8#8: *1 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:47:08 [error] 8#8: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/16 05:47:28 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:47:28 [info] 8#8: *1 client 172.26.0.1 closed keepalive connection
+2019/01/16 05:47:37 [error] 8#8: *3 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/16 05:47:48 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:48:02 [info] 8#8: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 05:48:22 [info] 8#8: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 06:17:03 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/16 06:17:05 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 06:18:02 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/16 06:18:12 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 06:18:41 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/16 06:19:00 [info] 8#8: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 06:19:12 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 06:56:45 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 06:56:46 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/16 06:56:56 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 06:57:34 [info] 9#9: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 06:58:03 [info] 9#9: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 06:59:19 [info] 9#9: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 07:08:03 [info] 9#9: *7 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 07:10:10 [info] 9#9: *9 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 07:11:10 [info] 9#9: *10 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 07:13:35 [info] 9#9: *11 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 07:22:48 [info] 9#9: *12 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 09:27:06 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/16 09:27:15 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 09:27:57 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 09:29:19 [error] 9#9: *5 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/16 09:30:17 [info] 9#9: *4 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 09:46:43 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 09:46:43 [info] 8#8: *1 client 172.26.0.1 closed keepalive connection
+2019/01/16 09:47:12 [info] 8#8: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 09:47:59 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 09:48:44 [info] 8#8: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 09:57:50 [info] 8#8: *8 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 10:22:13 [info] 8#8: *10 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 10:22:20 [error] 8#8: *9 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/16 10:22:55 [info] 8#8: *11 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 10:28:03 [info] 8#8: *14 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 10:29:03 [info] 8#8: *15 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/16 10:37:13 [info] 8#8: *16 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 07:50:19 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/17 07:50:29 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 07:50:42 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 07:50:56 [info] 9#9: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 07:51:08 [info] 9#9: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:23:42 [info] 9#9: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:23:54 [info] 9#9: *7 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:25:17 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:25:17 [info] 9#9: *1 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:25:33 [error] 9#9: *4 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/17 09:25:43 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:26:00 [info] 9#9: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:26:01 [error] 9#9: *4 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/17 09:26:02 [error] 9#9: *4 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/17 09:26:12 [info] 9#9: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:26:32 [info] 9#9: *7 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:27:06 [info] 9#9: *8 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:35:53 [info] 9#9: *10 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:36:00 [error] 9#9: *9 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/17 09:36:28 [info] 9#9: *11 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:36:41 [info] 9#9: *12 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:37:14 [info] 9#9: *13 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:37:25 [info] 9#9: *14 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:40:55 [info] 9#9: *16 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:41:05 [info] 9#9: *17 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:41:29 [info] 9#9: *15 client 172.26.0.1 closed keepalive connection
+2019/01/17 09:49:48 [info] 9#9: *19 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:50:15 [info] 9#9: *20 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 09:55:50 [error] 9#9: *23 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/17 09:56:41 [info] 9#9: *22 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 10:33:43 [error] 9#9: *24 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/17 10:33:57 [info] 9#9: *25 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 10:34:20 [info] 9#9: *26 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 10:38:40 [info] 9#9: *27 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 10:38:51 [info] 9#9: *28 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 10:44:09 [info] 9#9: *29 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 10:44:27 [info] 9#9: *31 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 10:45:31 [info] 9#9: *32 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 10:49:49 [info] 9#9: *33 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 10:50:35 [info] 9#9: *35 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 10:55:28 [info] 9#9: *37 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 11:10:21 [info] 9#9: *38 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/17 12:16:12 [info] 9#9: *39 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 01:25:23 [error] 8#8: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/18 01:25:50 [info] 8#8: *1 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 01:27:37 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 01:29:17 [info] 8#8: *5 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 01:49:10 [info] 8#8: *7 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 01:51:45 [info] 8#8: *8 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 01:53:41 [info] 8#8: *1 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 01:53:41 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 01:54:45 [info] 8#8: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 01:55:59 [info] 8#8: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 02:02:39 [info] 8#8: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 02:07:19 [info] 8#8: *7 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 06:54:34 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/18 06:54:45 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 06:54:55 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 06:55:27 [info] 9#9: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 06:57:39 [info] 9#9: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 06:57:50 [info] 9#9: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 11:27:23 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 11:30:07 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 11:35:05 [info] 8#8: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 11:35:31 [info] 8#8: *7 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 11:36:15 [info] 8#8: *8 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 11:36:56 [info] 8#8: *10 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 11:37:15 [info] 8#8: *11 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 11:42:09 [info] 9#9: *1 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 12:04:47 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/18 12:04:53 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 12:05:37 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 12:07:01 [error] 8#8: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu/blog/1"
+2019/01/18 12:08:11 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu/blog/1"
+2019/01/18 12:08:21 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 12:11:14 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 12:12:41 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu/blog/1/"
+2019/01/18 12:12:50 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 12:14:25 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 12:18:15 [info] 8#8: *3 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 12:20:17 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 12:34:38 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/18 12:34:47 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/18 12:34:59 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/21 01:40:18 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/21 02:22:10 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/21 06:22:57 [info] 9#9: *1 client 172.26.0.1 closed keepalive connection
+2019/01/21 08:30:54 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/21 10:33:06 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/21 10:42:30 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/21 12:20:39 [error] 8#8: *4 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/23 11:54:00 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/23 11:54:11 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 11:55:41 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:03:07 [info] 9#9: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:11:30 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/23 12:11:45 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:11:45 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/23 12:11:56 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:12:07 [info] 9#9: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:12:20 [info] 9#9: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:12:34 [info] 9#9: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:12:50 [info] 9#9: *7 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:13:42 [info] 9#9: *8 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:14:31 [info] 9#9: *9 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:15:08 [info] 9#9: *10 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:15:32 [info] 9#9: *11 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:15:42 [info] 9#9: *12 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:16:10 [info] 9#9: *13 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:17:43 [info] 9#9: *15 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:18:14 [info] 9#9: *16 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:18:54 [info] 9#9: *17 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:19:57 [info] 9#9: *18 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:26:24 [info] 9#9: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:26:39 [info] 9#9: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:26:52 [info] 9#9: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:27:04 [info] 9#9: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:28:54 [info] 9#9: *6 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:29:06 [error] 9#9: *7 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/23 12:29:09 [error] 9#9: *7 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/23 12:29:22 [info] 9#9: *8 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:29:33 [info] 9#9: *9 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:29:33 [error] 9#9: *7 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/23 12:29:59 [info] 9#9: *10 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:31:40 [info] 9#9: *11 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 12:32:06 [info] 9#9: *12 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:19:39 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:19:50 [info] 8#8: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:20:08 [info] 8#8: *4 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:20:33 [info] 8#8: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:21:57 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/23 13:22:07 [info] 8#8: *2 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:22:54 [info] 8#8: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:24:23 [info] 8#8: *5 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:25:23 [info] 8#8: *6 client timed out (110: Connection timed out) while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:28:23 [info] 8#8: *7 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:28:48 [info] 8#8: *8 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:29:06 [info] 8#8: *9 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:46:31 [error] 8#8: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/"
+2019/01/23 13:46:40 [info] 8#8: *1 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/23 13:47:14 [error] 8#8: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/person/weimingliu"
+2019/01/23 13:47:29 [info] 8#8: *3 client closed connection while waiting for request, client: 172.26.0.1, server: 0.0.0.0:80
+2019/01/25 13:28:17 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/first"
+2019/01/25 13:34:10 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/first"
+2019/01/25 13:36:44 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/first"
+2019/01/25 13:36:51 [error] 9#9: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/first"
+2019/01/25 13:38:54 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/profile/ruiyangtang"
